@@ -3,10 +3,12 @@ package com.trainingproject;
 import java.util.Scanner;
 
 import com.trainingproject.dao.impl.TrainerDAOImpl;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Trainer;
 
 public class TestTrainer {
 	
+	private static final Logger log=Logger.getInstance();
 	public static void testAddTrainerDetails() throws Exception
 	{
 		Trainer t=new Trainer();

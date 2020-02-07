@@ -6,11 +6,12 @@ import java.util.Scanner;
 
 import com.trainingproject.dao.impl.InterviewPerformanceDAOImpl;
 import com.trainingproject.dao.impl.RegistrationDAOImpl;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Registration;
 
 public class TestRegistration {
 
-	
+	private static final Logger log=Logger.getInstance();
 	public static void testAllUserDetails() throws Exception
 	{
         List<Registration> list1=new ArrayList<Registration>();

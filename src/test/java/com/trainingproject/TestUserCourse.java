@@ -6,12 +6,14 @@ import java.util.*;
 import com.trainingproject.dao.impl.CourseDAOImpl;
 import com.trainingproject.dao.impl.RegistrationDAOImpl;
 import com.trainingproject.dao.impl.UserCourseDAOImpl;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Course;
 import com.trainingproject.model.Registration;
 import com.trainingproject.model.UserCourse;
 
 public class TestUserCourse {
 
+	private static final Logger log=Logger.getInstance();
 	public static void userCourseDetails()throws Exception
 	{
 		//List all course details

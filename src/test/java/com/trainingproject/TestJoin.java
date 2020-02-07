@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.trainingproject.dao.impl.JoinDAOImpl;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.JoinCompanySchedule;
 import com.trainingproject.model.JoinUserCompany;
 import com.trainingproject.model.JoinUserCourse;
 
 public class TestJoin {
 	
+	private static final Logger log=Logger.getInstance();
 	public static void testJoinUserCourse()throws Exception
 	{
 		JoinDAOImpl impl=new JoinDAOImpl();

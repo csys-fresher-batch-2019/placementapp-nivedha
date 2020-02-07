@@ -2,12 +2,12 @@ package com.trainingproject;
 import java.util.Scanner;
 
 import com.trainingproject.dao.impl.CommentsDAOImpl;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Comments;
 
 public class TestComments {
 	
-	
-	
+	private static final Logger log=Logger.getInstance();
 	public static void testAddComments() throws Exception
 	{
 		CommentsDAOImpl impl=new CommentsDAOImpl();

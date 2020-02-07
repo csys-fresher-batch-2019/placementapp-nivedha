@@ -6,11 +6,13 @@ import java.util.Scanner;
 
 import com.trainingproject.dao.impl.CourseDAOImpl;
 import com.trainingproject.dao.impl.InterviewPerformanceDAOImpl;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.InterviewPerformance;
 import com.trainingproject.model.Registration;
 
 public class TestInterviewPerformance {
 
+	private static final Logger log=Logger.getInstance();
 	public static void testInsert() throws Exception
 	{
 		 InterviewPerformanceDAOImpl impl=new InterviewPerformanceDAOImpl();

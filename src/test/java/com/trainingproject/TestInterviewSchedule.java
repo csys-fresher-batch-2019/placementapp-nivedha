@@ -7,11 +7,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.trainingproject.dao.impl.InterviewScheduleDAOImpl;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.ClientCompany;
 import com.trainingproject.model.InterviewSchedule;
 
 public class TestInterviewSchedule {
 
+	private static final Logger log=Logger.getInstance();
 	public static void testAllSchedule() throws Exception
 	{
 		Scanner sc=new Scanner(System.in);

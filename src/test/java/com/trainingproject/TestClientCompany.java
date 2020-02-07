@@ -6,11 +6,13 @@ import java.util.Scanner;
 
 import com.trainingproject.dao.impl.ClientCompanyDAOImpl;
 import com.trainingproject.dao.impl.RegistrationDAOImpl;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.ClientCompany;
 import com.trainingproject.model.Registration;
 
 public class TestClientCompany {
-
+	
+	private static final Logger log=Logger.getInstance();
 	public static void testCompanyDetails() throws Exception
 	{
 		ClientCompanyDAOImpl impl=new ClientCompanyDAOImpl();

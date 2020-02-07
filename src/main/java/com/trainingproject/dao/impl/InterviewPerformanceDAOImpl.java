@@ -11,11 +11,13 @@ import java.util.List;
 
 import com.trainingproject.DbConnection;
 import com.trainingproject.dao.InterviewPerformanceDAO;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.InterviewPerformance;
 
 
 public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 
+	private static final Logger log=Logger.getInstance();
 	public void addPerformanceDetails(int clientId,int userId,String interPerform,String interStatus,int marks) throws Exception {
 		
 		String sql = "insert into intervieww(sl_no,client_id,user_id,inter_perform,inter_status,marks)values(sl_no_sqn.nextval,?,?,?,?,?)";	

@@ -6,10 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.trainingproject.logger.Logger;
+
 public class DiscountCalculation {
 	
+private static final Logger log=Logger.getInstance();
+
 public int getNoOfUser(int userId) throws Exception {
-		
 		
 		String sql="select count(user_id) from usercourse where user_id=?";
 		log.getInput("");

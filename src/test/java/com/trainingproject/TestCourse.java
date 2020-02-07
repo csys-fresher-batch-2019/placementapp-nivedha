@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 import com.trainingproject.TestCourse;
 import com.trainingproject.dao.impl.CourseDAOImpl;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Course;
 import com.trainingproject.model.UserCourse;
 
 public class TestCourse {
 	
-	
-	
+	private static final Logger log=Logger.getInstance();
 	public static void testGetCourseFees() throws Exception
 	{
 		Scanner sc=new Scanner(System.in);
