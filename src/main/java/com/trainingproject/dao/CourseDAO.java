@@ -10,7 +10,7 @@ public interface CourseDAO {
     void addCourses(Course list) throws Exception;
 	
 	//select * from course;
-	List<Course> allCourseDetails() throws Exception;
+	List<Course> allCourseDetails(String courseName) throws Exception;
 	
 	//update course set courseFees = ? where courseName = ?; 
     void updateCourse(String courseName, int courseFees) throws Exception;
@@ -27,6 +27,8 @@ public interface CourseDAO {
     List<Course> getNamesByfeesRange(int fees1,int fees2) throws Exception;
     
     List<Course> getMinFeesCourses() throws Exception;
+    
+  
     
    
  	

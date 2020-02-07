@@ -18,7 +18,7 @@ public class TestUserCourse {
 				CourseDAOImpl obj=new CourseDAOImpl();
 				List<Course> list=new ArrayList<Course>();
 				
-				list=obj.allCourseDetails();
+				list=obj.allCourseDetails(".net");
 				for(Course courseList:list)
 				{
 					System.out.println(courseList.toString());

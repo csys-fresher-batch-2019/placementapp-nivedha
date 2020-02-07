@@ -8,6 +8,7 @@ public class Course {
 	private  int courseDuration;
 	private  int courseFees;
 	private int courseCount;
+	private String courseImage;
 	
 	public int getCourseId() {
 		return courseId;
@@ -38,6 +39,12 @@ public class Course {
 	}
 	public void setCourseCount(int courseCount) {
 		this.courseCount = courseCount;
+	}
+	public String getCourseImage() {
+		return courseImage;
+	}
+	public void setCourseImage(String courseImage) {
+		this.courseImage = courseImage;
 	}
 	@Override
 	public String toString() {

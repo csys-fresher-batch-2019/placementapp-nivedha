@@ -11,6 +11,8 @@ import com.trainingproject.model.UserCourse;
 
 public class TestCourse {
 	
+	
+	
 	public static void testGetCourseFees() throws Exception
 	{
 		Scanner sc=new Scanner(System.in);
@@ -46,13 +48,14 @@ public class TestCourse {
 	{
 		CourseDAOImpl obj=new CourseDAOImpl();
 		List<Course> list=new ArrayList<Course>();
-		list=obj.allCourseDetails();
+		list=obj.allCourseDetails(".net");
 		System.out.println("");
 		for(Course courseList:list)
 		{
 			System.out.println(courseList.toString());
 		}
 	}
+	
 	
 	public static void testMinFees() throws Exception
 	{
