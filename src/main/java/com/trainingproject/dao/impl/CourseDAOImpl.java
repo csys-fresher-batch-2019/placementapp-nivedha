@@ -42,7 +42,7 @@ public class CourseDAOImpl implements CourseDAO{
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		
 		return list;
@@ -63,7 +63,7 @@ public class CourseDAOImpl implements CourseDAO{
 	   }
 	     catch(SQLException e)
 		   {
-	    	 e.printStackTrace();	
+	    	 log.error(e);	
 		   }
 	    
 	}
@@ -88,7 +88,7 @@ public class CourseDAOImpl implements CourseDAO{
 	}
 		catch(SQLException e)
 		   {
-	    	 e.printStackTrace();	
+	    	 log.error(e);	
 		   }
 		return a;
 	}
@@ -114,7 +114,7 @@ public class CourseDAOImpl implements CourseDAO{
 			}
 		}
 		catch(SQLException e) {
-			e.printStackTrace();
+			log.error(e);
 			}
 		
 		return list;
@@ -133,7 +133,7 @@ try(Connection con=DbConnection.getConnection();
         //log.getInput(row);
 	}
 catch(SQLException e) {
-	e.printStackTrace();
+	log.error(e);
 	}
 	}
 	
@@ -152,7 +152,7 @@ catch(SQLException e) {
     int row=pst.executeUpdate();
 	}
    catch(SQLException e) {
-		e.printStackTrace();
+		log.error(e);
 		}
   	
 }
@@ -182,7 +182,7 @@ catch(SQLException e) {
 		}
 	
 	catch(SQLException e) {
-		e.printStackTrace();
+		log.error(e);
 		}
 		
 		return list;
@@ -210,7 +210,7 @@ catch(SQLException e) {
 		}
 	
 	catch(SQLException e) {
-		e.printStackTrace();
+		log.error(e);
 		}
 		
 		return list;

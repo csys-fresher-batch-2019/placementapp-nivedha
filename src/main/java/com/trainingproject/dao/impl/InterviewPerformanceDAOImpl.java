@@ -36,7 +36,7 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		
 	}
@@ -67,7 +67,7 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		return list;
 	}

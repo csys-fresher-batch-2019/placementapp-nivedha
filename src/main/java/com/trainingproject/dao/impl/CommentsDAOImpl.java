@@ -30,7 +30,7 @@ public class CommentsDAOImpl implements CommentsDAO {
 	    }
 	    catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 	}
 	public String getUserName(int userCourseId) throws Exception 
@@ -51,7 +51,7 @@ public class CommentsDAOImpl implements CommentsDAO {
         }
 		 catch(SQLException e)
 		{
-	     e.printStackTrace();	
+	     log.error(e);	
 		}
 		return a;
 	}
@@ -73,7 +73,7 @@ public class CommentsDAOImpl implements CommentsDAO {
         }
 		 catch(SQLException e)
 		{
-	     e.printStackTrace();	
+	     log.error(e);	
 		}
 		return a;
 	}
@@ -96,7 +96,7 @@ public class CommentsDAOImpl implements CommentsDAO {
         }
 		catch(SQLException e)
 		{
-	     e.printStackTrace();	
+	     log.error(e);	
 		}
 		return b;
 	}

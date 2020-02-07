@@ -30,7 +30,7 @@ public class LoginDAOImpl implements LoginDAO {
 			}
 			catch(SQLException e)
 			{
-		e.printStackTrace();	
+		log.error(e);	
 			}
 	}
 	

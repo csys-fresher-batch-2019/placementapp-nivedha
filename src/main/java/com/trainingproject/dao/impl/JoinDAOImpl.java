@@ -58,7 +58,7 @@ public class JoinDAOImpl {
 		}
 		 catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		return list;
 		
@@ -99,7 +99,7 @@ public class JoinDAOImpl {
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		
 		return list;
@@ -145,7 +145,7 @@ public class JoinDAOImpl {
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		return list;
 	}

@@ -29,7 +29,7 @@ public int getNoOfUser(int userId) throws Exception {
         }
         catch(SQLException e)
 		{
-	e.printStackTrace();	
+	    log.error(e);	
 		}
 		return a;
 	}
@@ -53,7 +53,7 @@ public int getCourseFees(int courseId) throws Exception {
 	}
 	catch(SQLException e)
 	{
-e.printStackTrace();	
+log.error(e);	
 	}
 	return a;
 }

@@ -38,7 +38,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 	   }
 	   catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		
 	}
@@ -57,7 +57,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 	     }
 	     catch(SQLException e)
 			{
-		e.printStackTrace();	
+		log.error(e);	
 			}
 		
 	}
@@ -92,7 +92,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		return list1;
 	}
@@ -110,7 +110,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 		}
 		catch(SQLException e)
 		{
-	    e.printStackTrace();	
+	    log.error(e);	
 		}
 		
 	}
@@ -136,7 +136,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
         }
        catch(SQLException e)
 		{
-	    e.printStackTrace();	
+	    log.error(e);	
 		}
 		return a;
 	}
@@ -164,7 +164,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
         }
         catch(SQLException e)
 		{
-	    e.printStackTrace();	
+	    log.error(e);	
 		}
 		return list1;
 	}

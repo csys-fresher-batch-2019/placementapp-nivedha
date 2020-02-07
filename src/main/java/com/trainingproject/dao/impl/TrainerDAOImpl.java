@@ -30,7 +30,7 @@ public class TrainerDAOImpl implements TrainerDAO {
 	   }
 	   catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 	}
 

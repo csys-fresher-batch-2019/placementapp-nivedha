@@ -42,7 +42,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 	   
 	}
@@ -85,7 +85,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		return list;
 	
@@ -105,7 +105,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 		}
         catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 	}
 
@@ -130,7 +130,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
        }
        catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		return a;
 	}
@@ -163,7 +163,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
         }
         catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		return list1;
 	}

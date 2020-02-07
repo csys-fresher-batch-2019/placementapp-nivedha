@@ -42,7 +42,7 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		
 	}
@@ -68,7 +68,7 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		return a;
 		
@@ -113,7 +113,7 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 		}
 		catch(SQLException e)
 		{
-	    e.printStackTrace();	
+	    log.error(e);	
 		}
 		return list1;
 	}

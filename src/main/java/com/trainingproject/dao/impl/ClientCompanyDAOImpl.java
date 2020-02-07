@@ -38,7 +38,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 	    }
 	    catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 	   
 	}
@@ -72,7 +72,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		}
 		 catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		return list1;
 	}
@@ -106,7 +106,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		
 		return list1;
@@ -126,7 +126,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		
 	}
@@ -153,7 +153,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		}
 		catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		return list1;
 	}
@@ -177,7 +177,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
         }
         catch(SQLException e)
 		{
-	e.printStackTrace();	
+	log.error(e);	
 		}
 		return a;
 	}
@@ -195,7 +195,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 	     }
 	     catch(SQLException e)
 			{
-		e.printStackTrace();	
+		log.error(e);	
 			}
 
 		
