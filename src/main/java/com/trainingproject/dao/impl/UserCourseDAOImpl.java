@@ -12,11 +12,13 @@ import java.util.List;
 
 import com.trainingproject.DbConnection;
 import com.trainingproject.dao.UserCourseDAO;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Course;
 import com.trainingproject.model.Registration;
 import com.trainingproject.model.UserCourse;
 
 public class UserCourseDAOImpl implements UserCourseDAO {
+	private static final Logger log=Logger.getInstance();
 
 
 	public void addCourseDurationDate(UserCourse uc) throws Exception {
@@ -25,9 +27,9 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 		String sql = "insert into usercourse" + 
 				"(user_course_id,user_id,course_id,start_date,completion_date,total_amount)" + 
 				"values (user_course_id_seq.nextval,?,?,?,?,?)";
-		System.out.println("");
-		System.out.println("***Add Course Duration Details***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Add Course Duration Details***");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement pst = con.prepareStatement(sql);)
 		{
 		pst.setInt(1, uc.getUserId());
@@ -36,7 +38,7 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 		pst.setDate(4, Date.valueOf(uc.getCompletionDate()));
 		pst.setDouble(5, uc.getTotalAmount());
 	    int row=pst.executeUpdate();
-	    System.out.println(row);
+	    log.getInput(row);
 		}
 		catch(SQLException e)
 		{
@@ -48,8 +50,8 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 	public int getDuration(int courseId)throws Exception
 	{
 		String sql ="select course_duration from course where course_id =?";
-		System.out.println("");
-		System.out.println("***Display Course Duration Details***");
+		log.getInput("");
+		log.getInput("***Display Course Duration Details***");
 		
 		int a=0;
 		try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
@@ -77,9 +79,9 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 		List<UserCourse> list1=new ArrayList<UserCourse>();
 		
 		String sql ="select * from usercourse where user_id=?";
-		System.out.println("");
-		System.out.println("***Display UserCourse Details***");
-		//System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Display UserCourse Details***");
+		//log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
 		{
 		pst.setInt(1, userId);

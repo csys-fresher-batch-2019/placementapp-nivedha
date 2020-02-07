@@ -18,7 +18,7 @@ public class TestRegistration {
 		list1=impl.allUserDetails();
 		for(Registration register:list1)
 		{
-			System.out.println(register);
+			log.getInput(register);
 		}
 	}
 	public static void testUserDegree() throws Exception
@@ -28,62 +28,62 @@ public class TestRegistration {
 		list1=impl.getDegreeWiseNoOfUsers();
 		for(Registration register:list1)
 		{
-			System.out.println(register.getQualification()+"="+register.getUserId());
+			log.getInput(register.getQualification()+"="+register.getUserId());
 		}	
 	}
 	public static void testUserCount() throws Exception
 	{
 		RegistrationDAOImpl impl=new RegistrationDAOImpl();
 		int usersCount=impl.getNoOfUsers();
-		System.out.println("No.of users Registered:"+usersCount);
+		log.getInput("No.of users Registered:"+usersCount);
 	}
 
 	public static void testInsert() throws Exception
 	{
 		Scanner sc=new Scanner(System.in);
-		//System.out.println("Enter no of Users:");
+		//log.getInput("Enter no of Users:");
 		//int n=sc.nextInt();
 		ArrayList<Registration> list=new ArrayList<Registration>();
 	
-		System.out.println("Enter User details:");
+		log.getInput("Enter User details:");
 				
 		Registration reg1=new Registration();
-		System.out.println("Enter userName:");
+		log.getInput("Enter userName:");
 		reg1.setUserName(sc.nextLine());
 		reg1.setUserName(reg1.getUserName() + sc.nextLine());
-		System.out.println("Enter Password:");
+		log.getInput("Enter Password:");
 		reg1.setUserPassword(sc.next());
-		System.out.println("Enter userCity:");
+		log.getInput("Enter userCity:");
 		reg1.setUserCity(sc.nextLine());
 		reg1.setUserCity(reg1.getUserCity() + sc.nextLine());
-		System.out.println("Enter MobileNo:");
+		log.getInput("Enter MobileNo:");
 		reg1.setMobileNo(sc.nextLong());
-		System.out.println("Enter MailId:");
+		log.getInput("Enter MailId:");
 		reg1.setMailId(sc.next());
-		System.out.println("Enter user Qualification:");
+		log.getInput("Enter user Qualification:");
 		reg1.setQualification(sc.next());
-		System.out.println("Enter Gender:");
+		log.getInput("Enter Gender:");
 		reg1.setGender(sc.next());
 		list.add(reg1);
-		System.out.println("Successfully Registered");
+		log.getInput("Successfully Registered");
 		
 		RegistrationDAOImpl impl=new RegistrationDAOImpl();
 		for (Registration register : list)
 		{
 		impl.addUserDetails(register);
-		System.out.println(register);
+		log.getInput(register);
 		}
 		sc.close();
 }
 		
 	public static void testUpdate() throws Exception
 		{
-			System.out.println("");
-			System.out.println("***Update User Details***");
+			log.getInput("");
+			log.getInput("***Update User Details***");
 			Scanner sc=new Scanner(System.in);
-			System.out.println("Enter userId:");
+			log.getInput("Enter userId:");
 			int userId=sc.nextInt();
-			System.out.println("Enter Mobile Number:");
+			log.getInput("Enter Mobile Number:");
 			Long mobileNo=sc.nextLong();
 			
 			RegistrationDAOImpl impl=new RegistrationDAOImpl();
@@ -92,10 +92,10 @@ public class TestRegistration {
 		}
 	public static void testDelete() throws Exception
 		{
-			System.out.println("");
-			System.out.println("***Delete User Details***");
+			log.getInput("");
+			log.getInput("***Delete User Details***");
 			Scanner sc=new Scanner(System.in);
-			System.out.println("Enter userId:");
+			log.getInput("Enter userId:");
 			int userId=sc.nextInt();
 			
 			RegistrationDAOImpl impl=new RegistrationDAOImpl();

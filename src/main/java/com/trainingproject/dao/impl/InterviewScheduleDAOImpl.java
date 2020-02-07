@@ -14,20 +14,22 @@ import java.util.List;
 
 import com.trainingproject.DbConnection;
 import com.trainingproject.dao.InterviewScheduleDAO;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.ClientCompany;
 import com.trainingproject.model.InterviewSchedule;
 import com.trainingproject.model.Registration;
 
 public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
+	private static final Logger log=Logger.getInstance();
 
 	public void addSchedule(InterviewSchedule schedule) throws Exception {
 		
 	
 		String sql = "insert into schedule(interview_id,client_id,job_title,job_requirement,created_date,interview_date,interview_time)"
 				+ "values(interview_id_seq.nextval,?,?,?,?,?,?)";
-		System.out.println("");
-		System.out.println("***Add Interview Schedule Details***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Add Interview Schedule Details***");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement pst = con.prepareStatement(sql);)
 		{
 		pst.setInt(1, schedule.getClientId());
@@ -50,9 +52,9 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 		List<InterviewSchedule> list=new ArrayList<InterviewSchedule>();
 		
 		String sql ="select * from schedule";
-		System.out.println("");
-		System.out.println("***Display Interview Schedule Details***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Display Interview Schedule Details***");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
 		{
 		try(ResultSet rs=stmt.executeQuery();)
@@ -92,14 +94,14 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 	public void deleteSchedule(int interviewId) throws Exception {
 		
 		String sql="delete from schedule where interview_id=?";
-		System.out.println("");
-		System.out.println("***Delete Interview Schedule Details***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Delete Interview Schedule Details***");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
 		{
 		pst.setInt(1, interviewId);
         int row=pst.executeUpdate();
-        System.out.println(row);
+        log.getInput(row);
 		}
         catch(SQLException e)
 		{
@@ -110,9 +112,9 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 	public int getNoOfCompanies(String jobRequirement) throws Exception {
 		
 		String sql="select count(interview_id) from schedule where job_requirement like ?";
-		System.out.println("");
-		System.out.println("***Display the count based on job Requirement***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Display the count based on job Requirement***");
+		log.getInput(sql);
 		int a=0;
        try(	Connection con=DbConnection.getConnection(); PreparedStatement pst=con.prepareStatement(sql);)
        {
@@ -137,9 +139,9 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 		
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
 		String sql="select client_id,company_name,company_type,company_address,ph_no,contact_person,email_id from clientcmpy where client_id in (select client_id from schedule where job_requirement=?)";
-		System.out.println("");
-		System.out.println("***Display the company details based on the job title***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Display the company details based on the job title***");
+		log.getInput(sql);
         try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql); )
         {
         pst.setString(1, jobRequirement);

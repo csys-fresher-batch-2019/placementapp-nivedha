@@ -21,7 +21,7 @@ public class TestInterviewSchedule {
 		list=impl.allInterviewSchedules();
 		for (InterviewSchedule interview : list)
 		{
-			System.out.println(interview);
+			log.getInput(interview);
 		}
 	}
 	public static void testGetJobReq() throws Exception
@@ -29,9 +29,9 @@ public class TestInterviewSchedule {
 		Scanner sc=new Scanner(System.in);
 		InterviewScheduleDAOImpl impl=new InterviewScheduleDAOImpl();
 		InterviewSchedule inter=new InterviewSchedule();
-		System.out.println("");
-		System.out.println("***Display Company Details Based on JobRequirement***");
-		System.out.println("Enter Job Requirement:");
+		log.getInput("");
+		log.getInput("***Display Company Details Based on JobRequirement***");
+		log.getInput("Enter Job Requirement:");
 		inter.setJobRequirement(sc.nextLine());
 		inter.setJobRequirement(inter.getJobRequirement() + sc.nextLine());
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
@@ -39,7 +39,7 @@ public class TestInterviewSchedule {
 		list1=impl.getCompanyDetails(inter.getJobRequirement());
 		for (ClientCompany cmpy : list1)
 		{
-			System.out.println(cmpy);
+			log.getInput(cmpy);
 		}
 	}
 	
@@ -48,13 +48,13 @@ public class TestInterviewSchedule {
 		Scanner sc=new Scanner(System.in);
 		InterviewScheduleDAOImpl impl=new InterviewScheduleDAOImpl();
 		InterviewSchedule inter=new InterviewSchedule();
-		System.out.println("");
-		System.out.println("***Display Company Count Based on JobRequirement***");
-		System.out.println("Enter Job Requirement:");
+		log.getInput("");
+		log.getInput("***Display Company Count Based on JobRequirement***");
+		log.getInput("Enter Job Requirement:");
 		inter.setJobRequirement(sc.nextLine());
 		inter.setJobRequirement(inter.getJobRequirement() + sc.nextLine());
 		int jobCount=impl.getNoOfCompanies(inter.getJobRequirement());
-		System.out.println(jobCount);
+		log.getInput(jobCount);
 		
 	}
 	public static void testDelete() throws Exception
@@ -62,8 +62,8 @@ public class TestInterviewSchedule {
 		Scanner sc=new Scanner(System.in);
 		InterviewScheduleDAOImpl impl=new InterviewScheduleDAOImpl();
 		InterviewSchedule inter=new InterviewSchedule();
-		System.out.println("");
-		System.out.println("Enter Interview Id:");
+		log.getInput("");
+		log.getInput("Enter Interview Id:");
 		inter.setInterviewId(sc.nextInt());
 		impl.deleteSchedule(inter.getInterviewId());
 	}

@@ -11,16 +11,18 @@ import java.util.Map;
 
 import com.trainingproject.DbConnection;
 import com.trainingproject.dao.RegistrationDAO;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Course;
 import com.trainingproject.model.Registration;
 
 public class RegistrationDAOImpl implements RegistrationDAO{
+	private static final Logger log=Logger.getInstance();
 
 	public void addUserDetails(Registration reg) throws Exception {
 		
 		String sql = "insert into registration(user_id,user_name,user_password,user_city,mobile_no,mail_id,qualification,gender) values(user_id_seq.nextval,?,?,?,?,?,?,?)";
-		System.out.println("");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput(sql);
 	   try(Connection con=DbConnection.getConnection();
  PreparedStatement stmt=con.prepareStatement(sql);)
 	   {
@@ -32,7 +34,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 	    stmt.setString(6, reg.getQualification());
 	    stmt.setString(7, reg.getGender());
 	    int row=stmt.executeUpdate();
-	    System.out.println(row);
+	    log.getInput(row);
 	   }
 	   catch(SQLException e)
 		{
@@ -44,14 +46,14 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 	public void updateUserDetails(int userId, long mobileNo) throws Exception {
 		 
 		 String sql="update registration set mobile_no=? where user_id=?";
-		 System.out.println("");
-		 System.out.println(sql);
+		 log.getInput("");
+		 log.getInput(sql);
 	     try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
 	     {
 	     pst.setLong(1, mobileNo);
 	     pst.setInt(2, userId);
 	     int row=pst.executeUpdate();
-	     System.out.println(row);
+	     log.getInput(row);
 	     }
 	     catch(SQLException e)
 			{
@@ -66,9 +68,9 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 		List<Registration> list1=new ArrayList<Registration>();
 		
 		String sql ="select * from registration";
-		System.out.println("");
-		System.out.println("***Display User Details***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Display User Details***");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
 		{
 			try(ResultSet rs=stmt.executeQuery();)
@@ -98,13 +100,13 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 	public void deleteUserDetails(int userId) throws Exception {
 		
 		String sql="delete from registration where user_id=?";
-		System.out.println("");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
 		{
 		pst.setInt(1, userId);
         int row=pst.executeUpdate();
-        System.out.println(row);
+        log.getInput(row);
 		}
 		catch(SQLException e)
 		{
@@ -116,9 +118,9 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 	public int getNoOfUsers() throws Exception {
 		
 		String sql="select count(user_id) from registration";
-		System.out.println("");
-		System.out.println("***Display the No of Users***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Display the No of Users***");
+		log.getInput(sql);
 		int a=0;
         try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
         {
@@ -143,9 +145,9 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 		
 		List<Registration> list1=new ArrayList<Registration>();
 		String sql="select qualification as qualification,count(user_id) from registration group by qualification";
-		System.out.println("");
-		System.out.println("***Display No Of Users Based on Qualification***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Display No Of Users Based on Qualification***");
+		log.getInput(sql);
         try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
         {
         	try(ResultSet rs=stmt.executeQuery();)

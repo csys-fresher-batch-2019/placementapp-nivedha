@@ -7,9 +7,10 @@ import java.sql.SQLException;
 
 import com.trainingproject.DbConnection;
 import com.trainingproject.dao.LoginDAO;
+import com.trainingproject.logger.Logger;
 
 public class LoginDAOImpl implements LoginDAO {
-
+	private static final Logger log=Logger.getInstance();
 	public void login(String userName,String userPassword) throws Exception {
 		
 			
@@ -20,11 +21,11 @@ public class LoginDAOImpl implements LoginDAO {
 				{
 			if (rs.next()) {
 			
-				System.out.println("LOGGED IN");
+				log.getInput("LOGGED IN");
 			}
 			else 
 		
-			System.out.println("INVALID USERNAME OR PASSWORD");
+			log.getInput("INVALID USERNAME OR PASSWORD");
 	}
 			}
 			catch(SQLException e)

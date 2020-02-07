@@ -21,7 +21,7 @@ public class TestUserCourse {
 				list=obj.allCourseDetails(".net");
 				for(Course courseList:list)
 				{
-					System.out.println(courseList.toString());
+					log.getInput(courseList.toString());
 				}
 				
 	    //List all user details
@@ -31,7 +31,7 @@ public class TestUserCourse {
 				list1=impl.allUserDetails();
 				for(Registration register:list1)
 				{
-					System.out.println(register);
+					log.getInput(register);
 				}
 	
 	}
@@ -39,36 +39,36 @@ public class TestUserCourse {
 	{
 		LocalDate currentDate = LocalDate.now();
 		Scanner sc=new Scanner(System.in);
-		System.out.println("");
-		//System.out.println("Enter no of UserCourse details to add");
+		log.getInput("");
+		//log.getInput("Enter no of UserCourse details to add");
 		//int n=sc.nextInt();
 		ArrayList<UserCourse> list2=new ArrayList<UserCourse>();
 		
 		
 			
-		System.out.println("Enter UserCourse details:");
+		log.getInput("Enter UserCourse details:");
 		
 		UserCourse uc1=new UserCourse();
-		System.out.println("Enter User Id:");
+		log.getInput("Enter User Id:");
 		uc1.setUserId(sc.nextInt());
-		System.out.println("Enter Course Id:");
+		log.getInput("Enter Course Id:");
 		uc1.setCourseId(sc.nextInt());
 		uc1.setStartDate(currentDate);
 		list2.add(uc1);
 		
-		System.out.println("UserCourse detail is added");
+		log.getInput("UserCourse detail is added");
 		
         UserCourseDAOImpl impl1=new UserCourseDAOImpl();
 		
 		for (UserCourse userCourse : list2) 
 		{
 			int duration=impl1.getDuration(uc1.getCourseId());
-			System.out.println(duration);
+			log.getInput(duration);
 			userCourse.setCompletionDate(userCourse.getStartDate().plusMonths(duration));
-			System.out.println(userCourse);
+			log.getInput(userCourse);
 			userCourse.setTotalAmount(discount());
 			impl1.addCourseDurationDate(userCourse);
-			System.out.println(userCourse);
+			log.getInput(userCourse);
 		}
 				
 }
@@ -76,14 +76,14 @@ public class TestUserCourse {
 	{
 		Scanner sc=new Scanner(System.in);
 		UserCourse uc1=new UserCourse();
-		System.out.println("Enter User Id:");
+		log.getInput("Enter User Id:");
 		uc1.setUserId(sc.nextInt());
 		 UserCourseDAOImpl impl1=new UserCourseDAOImpl();
 		 List<UserCourse> list1=new ArrayList<UserCourse>();
 		 list1=impl1.getUserCourseDetails(uc1.getUserId());
 			for (UserCourse userCourse : list1) 
 			{
-			System.out.println(userCourse);
+			log.getInput(userCourse);
 			}
 		
 	}
@@ -93,17 +93,17 @@ public class TestUserCourse {
         DiscountCalculation dis=new DiscountCalculation();
     	UserCourse uc=new UserCourse();
     	Course c=new Course();
-    	System.out.println("");
-    	System.out.println("To Display the Discount Details of the User");
-    	System.out.println("Enter User Id:");
+    	log.getInput("");
+    	log.getInput("To Display the Discount Details of the User");
+    	log.getInput("Enter User Id:");
 		uc.setUserId(sc.nextInt());
-		System.out.println("Enter Course Id:");
+		log.getInput("Enter Course Id:");
 		c.setCourseId(sc.nextInt());
 		
     	int courseCount=dis.getNoOfUser(uc.getUserId());
-    	System.out.println(courseCount);
+    	log.getInput(courseCount);
     	int courseFees=dis.getCourseFees(c.getCourseId());
-    	System.out.println(courseFees);
+    	log.getInput(courseFees);
     	
     	double discountAmount;
 		switch(courseCount)
@@ -123,10 +123,10 @@ public class TestUserCourse {
 		default:
 			discountAmount=0;
 		}
-		System.out.println("");
-		System.out.println("DiscountAmount: " +discountAmount);
+		log.getInput("");
+		log.getInput("DiscountAmount: " +discountAmount);
 		double totalAmount=courseFees-discountAmount;
-		System.out.println("TotalAmount:" +totalAmount);
+		log.getInput("TotalAmount:" +totalAmount);
 		sc.close();
 		return totalAmount;
     

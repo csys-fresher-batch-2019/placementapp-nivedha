@@ -10,19 +10,21 @@ import java.util.List;
 
 import com.trainingproject.DbConnection;
 import com.trainingproject.dao.ClientCompanyDAO;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.ClientCompany;
 
 public class ClientCompanyDAOImpl implements ClientCompanyDAO
 {
+	private static final Logger log=Logger.getInstance();
 
 	public void addCompanyDetails(ClientCompany client) throws Exception {
 		
 		
 		String sql = "insert into clientcmpy(client_id,company_name,company_type,company_address,ph_no,contact_person,email_id)values"
 				+ "(client_id_seq.nextval,?,?,?,?,?,?)";
-		System.out.println("");
-		System.out.println("***Add Company Details***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Add Company Details***");
+		log.getInput(sql);
 	    try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
 	    {
 	    pst.setString(1, client.getCompanyName());
@@ -32,7 +34,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 	    pst.setString(5, client.getContactPerson());
 	    pst.setString(6, client.getEmailId());
 	    int row=pst.executeUpdate();
-	    System.out.println(row);	
+	    log.getInput(row);	
 	    }
 	    catch(SQLException e)
 		{
@@ -46,9 +48,9 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
 		
 		String sql ="select * from clientcmpy";
-		System.out.println("");
-		System.out.println("***Display All Company Details***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Display All Company Details***");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
 		{
 			try(ResultSet rs=stmt.executeQuery();)
@@ -80,9 +82,9 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
 		
 		String sql="select client_id,company_name,company_type,company_address,ph_no,contact_person,email_id from clientcmpy where company_name like ?";
-		System.out.println("");
-		System.out.println("***Display "+companyName+" Company Details***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Display "+companyName+" Company Details***");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
 		{
 		pst.setString(1, "%"+companyName+"%");
@@ -113,14 +115,14 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 	public void deleteCompanyDetails(int clientId) throws Exception {
 		
 		String sql="delete from clientcmpy where client_id=?";
-		System.out.println("");
-		System.out.println("***Delete Company Details***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Delete Company Details***");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
 		{
 		pst.setInt(1, clientId);
         int row=pst.executeUpdate();
-        System.out.println(row);
+        log.getInput(row);
 		}
 		catch(SQLException e)
 		{
@@ -133,9 +135,9 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
 		String sql="select company_name from clientcmpy";
-		System.out.println("");
-		System.out.println("***Display Company Names***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Display Company Names***");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
 		{
 		try(ResultSet rs=stmt.executeQuery();)
@@ -159,8 +161,8 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 	public int getNoOfCompanies() throws Exception {
 		
 		String sql="select count(company_name) from clientcmpy";
-		System.out.println("");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput(sql);
 		int a=0;
         try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
         {
@@ -183,8 +185,8 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 	public void updateCompanyDetails(String companyName, String contactPerson) throws Exception {
 		
 		 String sql="update clientcmpy set contact_person=? where company_name=?";
-		 System.out.println(""); 
-		 System.out.println(sql);
+		 log.getInput(""); 
+		 log.getInput(sql);
 	     try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
 	     { 
 	     pst.setString(1, contactPerson);

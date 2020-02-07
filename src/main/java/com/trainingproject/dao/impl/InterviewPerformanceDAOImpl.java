@@ -19,9 +19,9 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 	public void addPerformanceDetails(int clientId,int userId,String interPerform,String interStatus,int marks) throws Exception {
 		
 		String sql = "insert into intervieww(sl_no,client_id,user_id,inter_perform,inter_status,marks)values(sl_no_sqn.nextval,?,?,?,?,?)";	
-		System.out.println("");
-		System.out.println("***Add Interview Performance Details***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Add Interview Performance Details***");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement pst = con.prepareStatement(sql);)
 		{
 		pst.setInt(1, clientId);
@@ -30,7 +30,7 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 		pst.setString(4,interStatus);
 		pst.setInt(5,marks);
 	    int row=pst.executeUpdate();
-	    System.out.println(row);
+	    log.getInput(row);
 		}
 		catch(SQLException e)
 		{
@@ -44,9 +44,9 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
         List<InterviewPerformance> list=new ArrayList<InterviewPerformance>();
 		
 		String sql ="select client_id,user_id,marks,INTERVIEW_PERFORMANCE(marks) as interviewperformance,interiew_status(marks)as interiewstatus from intervieww";
-		System.out.println("***Display Interview Performance Details***");
-		System.out.println("");
-		System.out.println(sql);
+		log.getInput("***Display Interview Performance Details***");
+		log.getInput("");
+		log.getInput(sql);
 		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
 		{
 		try(ResultSet rs=stmt.executeQuery();)

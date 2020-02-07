@@ -6,15 +6,16 @@ import java.sql.SQLException;
 
 import com.trainingproject.DbConnection;
 import com.trainingproject.dao.TrainerDAO;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Trainer;
 
 public class TrainerDAOImpl implements TrainerDAO {
-
+	private static final Logger log=Logger.getInstance();
 	public void addTrainerDetails(Trainer t) throws Exception {
 		
 		
 		String sql = "insert into trainer(trainer_id,trainer_name,trainer_qualfication,trainer_specialist,trainer_experience,email_id,contact_number)values(trainer_id_sqn.nextval,?,?,?,?,?,?)";
-		System.out.println("");
+		log.getInput("");
 		
 	   try(Connection con=DbConnection.getConnection(); PreparedStatement pst = con.prepareStatement(sql);)
 	   {
@@ -25,7 +26,7 @@ public class TrainerDAOImpl implements TrainerDAO {
 		pst.setString(5,t.getEmailId());
 		pst.setLong(6,t.getContactNumber());
 	    int row=pst.executeUpdate();
-		System.out.println("***Added Trainer Details successfully***");
+		log.getInput("***Added Trainer Details successfully***");
 	   }
 	   catch(SQLException e)
 		{

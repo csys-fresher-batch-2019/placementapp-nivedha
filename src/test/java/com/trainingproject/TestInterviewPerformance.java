@@ -16,13 +16,13 @@ public class TestInterviewPerformance {
 		 InterviewPerformanceDAOImpl impl=new InterviewPerformanceDAOImpl();
 	        
 	        Scanner sc=new Scanner(System.in);
-	        System.out.println("Enter the Client Id:");
+	        log.getInput("Enter the Client Id:");
 	        int clientId=sc.nextInt();
 	        
-	        System.out.println("Enter the User Id:");
+	        log.getInput("Enter the User Id:");
 	        int userId=sc.nextInt();
 	        
-	        System.out.println("Enter the Interview Marks:");
+	        log.getInput("Enter the Interview Marks:");
 	        int marks=sc.nextInt();
 	        
 	        String interPerform=impl.getPerformance(marks);
@@ -60,10 +60,10 @@ public class TestInterviewPerformance {
 	        InterviewPerformanceDAOImpl impl=new InterviewPerformanceDAOImpl();
 	        List<InterviewPerformance> list=new ArrayList<InterviewPerformance>();
 	        list=impl.viewPerformanceStatus();
-	        System.out.println("");
+	        log.getInput("");
 	        for(InterviewPerformance in:list)
 	        {
-	        	System.out.println(in);
+	        	log.getInput(in);
 	        }
            
 	       

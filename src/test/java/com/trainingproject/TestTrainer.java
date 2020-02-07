@@ -11,25 +11,25 @@ public class TestTrainer {
 	{
 		Trainer t=new Trainer();
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter Trainer details:");
-		System.out.println("Enter Trainer Name:");
+		log.getInput("Enter Trainer details:");
+		log.getInput("Enter Trainer Name:");
 		t.setTrainerName(sc.nextLine());
 		t.setTrainerName(t.getTrainerName() + sc.nextLine());
-		System.out.println("Enter Trainer Qualification:");
+		log.getInput("Enter Trainer Qualification:");
 		t.setTrainerQualification(sc.next());
-		System.out.println("Enter Trainer Specialist:");
+		log.getInput("Enter Trainer Specialist:");
 		t.setTrainerSpecialist(sc.nextLine());
 		t.setTrainerSpecialist(t.getTrainerSpecialist() + sc.nextLine());
-		System.out.println("Enter Trainer Experience:");
+		log.getInput("Enter Trainer Experience:");
 		t.setTrainerExperience(sc.nextInt());
-		System.out.println("Enter Trainer EMail Id:");
+		log.getInput("Enter Trainer EMail Id:");
 		t.setEmailId(sc.next());
-		System.out.println("Enter Trainer Contact No:");
+		log.getInput("Enter Trainer Contact No:");
 		t.setContactNumber(sc.nextLong());
 		
 		TrainerDAOImpl impl=new TrainerDAOImpl();
 		impl.addTrainerDetails(t);
-        System.out.println(t);
+        log.getInput(t);
 	}
 
 }

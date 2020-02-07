@@ -7,15 +7,16 @@ import java.sql.SQLException;
 
 import com.trainingproject.DbConnection;
 import com.trainingproject.dao.CommentsDAO;
+import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Comments;
 
 public class CommentsDAOImpl implements CommentsDAO {
-
+	private static final Logger log=Logger.getInstance();
 	public void addComments(Comments c) throws Exception {
 		
 		String sql = "insert into comments(comments_id,user_course_id,trainer_id,course_comments,institution_rating,trainer_rating)" + 
 				"values(comments_id_sqn.nextval,?,?,?,?,?)";
-		System.out.println("");
+		log.getInput("");
 	
 	    try(Connection con=DbConnection.getConnection();PreparedStatement pst = con.prepareStatement(sql);)
 	    {
@@ -25,7 +26,7 @@ public class CommentsDAOImpl implements CommentsDAO {
 		pst.setInt(4,c.getInstitutionRating());
 		pst.setInt(5,c.getTrainerRating());
 		int row=pst.executeUpdate();
-		System.out.println("***Comments Added successfully***");
+		log.getInput("***Comments Added successfully***");
 	    }
 	    catch(SQLException e)
 		{

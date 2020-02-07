@@ -18,29 +18,29 @@ public class TestCourse {
 		Scanner sc=new Scanner(System.in);
 		CourseDAOImpl obj=new CourseDAOImpl();
 		Course c=new Course();
-		System.out.println("");
-		System.out.println("***Get Course Fees***");
-		System.out.println("Enter Course Name:");
+		log.getInput("");
+		log.getInput("***Get Course Fees***");
+		log.getInput("Enter Course Name:");
 		c.setCourseName(sc.next());	
 		int fees=obj.getFees(c.getCourseName());
-		System.out.println(fees);
+		log.getInput(fees);
 	}
 	public static void testNamesByfeesRange() throws Exception
 	{
 		Scanner sc=new Scanner(System.in);
 		CourseDAOImpl obj=new CourseDAOImpl();
 		Course c=new Course();
-		System.out.println("");
-		System.out.println("***Get Course Name Based on Fees Range Between 10-25K***");
-		System.out.println("Enter Course Fees1:");
+		log.getInput("");
+		log.getInput("***Get Course Name Based on Fees Range Between 10-25K***");
+		log.getInput("Enter Course Fees1:");
 		int fees1=sc.nextInt();
-		System.out.println("Enter Course Fees2:");
+		log.getInput("Enter Course Fees2:");
 		int fees2=sc.nextInt();
 		List<Course> list=new ArrayList<Course>();
 		list=obj.getNamesByfeesRange(fees1, fees2);
 		for(Course courseList:list)
 		{
-			System.out.println("[CourseName: "+courseList.getCourseName()+", CourseFees: "+courseList.getCourseFees()+"]");
+			log.getInput("[CourseName: "+courseList.getCourseName()+", CourseFees: "+courseList.getCourseFees()+"]");
 		}
 	
 	}
@@ -49,10 +49,10 @@ public class TestCourse {
 		CourseDAOImpl obj=new CourseDAOImpl();
 		List<Course> list=new ArrayList<Course>();
 		list=obj.allCourseDetails(".net");
-		System.out.println("");
+		log.getInput("");
 		for(Course courseList:list)
 		{
-			System.out.println(courseList.toString());
+			log.getInput(courseList.toString());
 		}
 	}
 	
@@ -63,10 +63,10 @@ public class TestCourse {
 		CourseDAOImpl obj=new CourseDAOImpl();
 		List<Course> list=new ArrayList<Course>();
 		list=obj.getMinFeesCourses();
-		System.out.println("");
+		log.getInput("");
 		for(Course courseList:list)
 		{
-			System.out.println(courseList.getCourseName()+"-"+courseList.getCourseFees());
+			log.getInput(courseList.getCourseName()+"-"+courseList.getCourseFees());
 			
 		}
 
@@ -77,11 +77,11 @@ public class TestCourse {
 		Scanner sc=new Scanner(System.in);
 		CourseDAOImpl obj=new CourseDAOImpl();
 		Course c=new Course();
-		System.out.println("");
-		System.out.println("***Update Course Fees***");
-		System.out.println("Enter Course Name:");
+		log.getInput("");
+		log.getInput("***Update Course Fees***");
+		log.getInput("Enter Course Name:");
 		c.setCourseName(sc.next());	
-		System.out.println("Enter Course Fees:");
+		log.getInput("Enter Course Fees:");
 		c.setCourseFees(sc.nextInt());	
 		obj.updateCourse(c.getCourseName(),c.getCourseFees());
 	}
@@ -92,9 +92,9 @@ public class TestCourse {
 		Scanner sc=new Scanner(System.in);
 		CourseDAOImpl obj=new CourseDAOImpl();
 		Course c=new Course();
-		System.out.println("");
-		System.out.println("***Delete Course Details***");
-		System.out.println("Enter Course Id:");
+		log.getInput("");
+		log.getInput("***Delete Course Details***");
+		log.getInput("Enter Course Id:");
 		c.setCourseId(sc.nextInt());	
 		obj.deleteCourse(c.getCourseId());
 	}
@@ -102,29 +102,29 @@ public class TestCourse {
 	public static void testInsert() throws Exception 
 	{
 		Scanner sc=new Scanner(System.in);
-		//System.out.println("Enter no of courses to add");
+		//log.getInput("Enter no of courses to add");
 		//int n=sc.nextInt();
 		
 		List<Course> list=new ArrayList<Course>();
 		
-			System.out.println("Enter Course details:");
+			log.getInput("Enter Course details:");
 					
 				Course c1=new Course();
-				System.out.println("Enter Course Name:");
+				log.getInput("Enter Course Name:");
 				c1.setCourseName(sc.next());
-				System.out.println("Enter Course Duration:");
+				log.getInput("Enter Course Duration:");
 				c1.setCourseDuration(sc.nextInt());
-				System.out.println("Enter Course Fees:");
+				log.getInput("Enter Course Fees:");
 				c1.setCourseFees(sc.nextInt());
 						
 				list.add(c1);
-				System.out.println("Course is added successfully");
+				log.getInput("Course is added successfully");
 				
 				CourseDAOImpl obj=new CourseDAOImpl();
 				for (Course course : list) 
 				{
 				obj.addCourses(course);	
-				System.out.println(course);
+				log.getInput(course);
 				}
 		
 					
@@ -135,10 +135,10 @@ public class TestCourse {
 		CourseDAOImpl obj=new CourseDAOImpl();
 		List<Course> list=new ArrayList<Course>();
 		list=obj.getCourseNames();
-		System.out.println("");
+		log.getInput("");
 		for(Course courseList:list)
 		{
-			System.out.println(courseList.getCourseName());
+			log.getInput(courseList.getCourseName());
 		}
 	}
 }

@@ -12,9 +12,9 @@ public int getNoOfUser(int userId) throws Exception {
 		
 		
 		String sql="select count(user_id) from usercourse where user_id=?";
-		System.out.println("");
-		System.out.println("***Display "+userId+" count***");
-		System.out.println(sql);
+		log.getInput("");
+		log.getInput("***Display "+userId+" count***");
+		log.getInput(sql);
 		int a=0;
         try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);ResultSet rs=pst.executeQuery();)
         {
@@ -34,9 +34,9 @@ public int getCourseFees(int courseId) throws Exception {
 	
 	
 	String sql="select course_fees from course where course_id=?";
-	System.out.println("");
-	System.out.println("***Display "+courseId+" Fees Details***");
-	System.out.println(sql);
+	log.getInput("");
+	log.getInput("***Display "+courseId+" Fees Details***");
+	log.getInput(sql);
 	int a=0;
 	try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);ResultSet rs=pst.executeQuery();)
 	{

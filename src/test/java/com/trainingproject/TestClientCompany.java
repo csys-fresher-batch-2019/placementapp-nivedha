@@ -15,12 +15,12 @@ public class TestClientCompany {
 	{
 		ClientCompanyDAOImpl impl=new ClientCompanyDAOImpl();
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
-		System.out.println("");
+		log.getInput("");
 		list1=impl.listCompanyDetails();
 		for(ClientCompany client:list1)
 		{
 
-			System.out.println(client);
+			log.getInput(client);
 		}
 	}
 	public static void testSearchByCompany() throws Exception
@@ -29,15 +29,15 @@ public class TestClientCompany {
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
 		ClientCompany cc=new ClientCompany();
 		Scanner sc=new Scanner(System.in);
-		System.out.println("");
-	    System.out.println("***Display Company Details***");
-		System.out.println("Enter Company Name:");
+		log.getInput("");
+	    log.getInput("***Display Company Details***");
+		log.getInput("Enter Company Name:");
 		cc.setCompanyName(sc.nextLine());
 		cc.setCompanyName(cc.getCompanyName() + sc.nextLine());
 		list1=impl.searchByCompany(cc.getCompanyName());
 		for(ClientCompany client:list1)
 		{
-			System.out.println(client);
+			log.getInput(client);
 		}
 	}
 	
@@ -45,21 +45,21 @@ public class TestClientCompany {
 	{
 		ClientCompanyDAOImpl impl=new ClientCompanyDAOImpl();
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
-		System.out.println("");
+		log.getInput("");
 		list1=impl.getCompanyNames();
 		for(ClientCompany client:list1)
 		{
 
-			System.out.println(client);
+			log.getInput(client);
 		}
 	}
 	public static void testCompanyCount() throws Exception
 	{
 		ClientCompanyDAOImpl impl=new ClientCompanyDAOImpl();
-		System.out.println("");
-		System.out.println("***No Of Companies***");
+		log.getInput("");
+		log.getInput("***No Of Companies***");
 		int count=impl.getNoOfCompanies();
-		System.out.println(count);
+		log.getInput(count);
 	}
 	public static void testInsert() throws Exception
 	{
@@ -69,33 +69,33 @@ public class TestClientCompany {
 		ArrayList<ClientCompany> list=new ArrayList<ClientCompany>();
 		
 		
-		System.out.println("Enter Company details:");
+		log.getInput("Enter Company details:");
 				
 		ClientCompany cc=new ClientCompany();
-		System.out.println("Enter Company Name:");
+		log.getInput("Enter Company Name:");
 		cc.setCompanyName(sc.nextLine());
 		cc.setCompanyName(cc.getCompanyName() + sc.nextLine());
-		System.out.println("Enter Company Type:");
+		log.getInput("Enter Company Type:");
 		cc.setCompanyType(sc.next());
-		System.out.println("Enter Company Address:");
+		log.getInput("Enter Company Address:");
 		cc.setCompanyAddress(sc.nextLine());
 		cc.setCompanyAddress(cc.getCompanyAddress() + sc.nextLine());
-		System.out.println("Enter Mobile Number:");
+		log.getInput("Enter Mobile Number:");
 		cc.setPhoneNo(sc.nextLong());
-		System.out.println("Enter Contact Person:");
+		log.getInput("Enter Contact Person:");
 		cc.setContactPerson(sc.nextLine());
 		cc.setContactPerson(cc.getContactPerson() + sc.nextLine());
-		System.out.println("Enter Mail Id:");
+		log.getInput("Enter Mail Id:");
 		cc.setEmailId(sc.next());
 		
 		list.add(cc);
-		System.out.println("Company details is added");
+		log.getInput("Company details is added");
 		
 		ClientCompanyDAOImpl impl=new ClientCompanyDAOImpl();
 		for (ClientCompany company: list)
 		{
 		impl.addCompanyDetails(company);
-		System.out.println(company);
+		log.getInput(company);
 		}
 
 		sc.close();
@@ -107,9 +107,9 @@ public class TestClientCompany {
 		ClientCompany cc=new ClientCompany();
 		ClientCompanyDAOImpl impl=new ClientCompanyDAOImpl();
 
-		System.out.println("");
-		System.out.println("***Delete Company Details***");
-		System.out.println("Enter Client Id:");
+		log.getInput("");
+		log.getInput("***Delete Company Details***");
+		log.getInput("Enter Client Id:");
 		cc.setClientId(sc.nextInt());
 		impl.deleteCompanyDetails(cc.getClientId());
 		sc.close();
@@ -121,12 +121,12 @@ public class TestClientCompany {
 		ClientCompany cc=new ClientCompany();
 		ClientCompanyDAOImpl impl=new ClientCompanyDAOImpl();
 		
-		System.out.println("");
-		System.out.println("***Update Company Details***");
-		System.out.println("Enter Company Name:");
+		log.getInput("");
+		log.getInput("***Update Company Details***");
+		log.getInput("Enter Company Name:");
 		cc.setCompanyName(sc.nextLine());
 		cc.setCompanyName(cc.getCompanyName() + sc.nextLine());
-		System.out.println("Enter Contact Person:");
+		log.getInput("Enter Contact Person:");
 		cc.setContactPerson(sc.nextLine());
 		cc.setContactPerson(cc.getContactPerson() + sc.nextLine());
 		impl.updateCompanyDetails(cc.getContactPerson(),cc.getCompanyName());
