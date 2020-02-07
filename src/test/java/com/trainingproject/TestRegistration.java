@@ -28,7 +28,7 @@ public class TestRegistration {
 		list1=impl.getDegreeWiseNoOfUsers();
 		for(Registration register:list1)
 		{
-			System.out.println(register.qualification+"="+register.userId);
+			System.out.println(register.getQualification()+"="+register.getUserId());
 		}	
 	}
 	public static void testUserCount() throws Exception
@@ -49,21 +49,21 @@ public class TestRegistration {
 				
 		Registration reg1=new Registration();
 		System.out.println("Enter userName:");
-		reg1.userName=sc.nextLine();
-		reg1.userName+=sc.nextLine();
+		reg1.setUserName(sc.nextLine());
+		reg1.setUserName(reg1.getUserName() + sc.nextLine());
 		System.out.println("Enter Password:");
-		reg1.userPassword=sc.next();
+		reg1.setUserPassword(sc.next());
 		System.out.println("Enter userCity:");
-		reg1.userCity=sc.nextLine();
-		reg1.userCity+=sc.nextLine();
+		reg1.setUserCity(sc.nextLine());
+		reg1.setUserCity(reg1.getUserCity() + sc.nextLine());
 		System.out.println("Enter MobileNo:");
-		reg1.mobileNo=sc.nextLong();
+		reg1.setMobileNo(sc.nextLong());
 		System.out.println("Enter MailId:");
-		reg1.mailId=sc.next();
+		reg1.setMailId(sc.next());
 		System.out.println("Enter user Qualification:");
-		reg1.qualification=sc.next();
+		reg1.setQualification(sc.next());
 		System.out.println("Enter Gender:");
-		reg1.gender=sc.next();
+		reg1.setGender(sc.next());
 		list.add(reg1);
 		System.out.println("Successfully Registered");
 		

@@ -50,10 +50,10 @@ public class TestUserCourse {
 		
 		UserCourse uc1=new UserCourse();
 		System.out.println("Enter User Id:");
-		uc1.userId=sc.nextInt();
+		uc1.setUserId(sc.nextInt());
 		System.out.println("Enter Course Id:");
-		uc1.courseId=sc.nextInt();
-		uc1.startDate=currentDate;
+		uc1.setCourseId(sc.nextInt());
+		uc1.setStartDate(currentDate);
 		list2.add(uc1);
 		
 		System.out.println("UserCourse detail is added");
@@ -62,11 +62,11 @@ public class TestUserCourse {
 		
 		for (UserCourse userCourse : list2) 
 		{
-			int duration=impl1.getDuration(uc1.courseId);
+			int duration=impl1.getDuration(uc1.getCourseId());
 			System.out.println(duration);
-			userCourse.completionDate = userCourse.startDate.plusMonths(duration);
+			userCourse.setCompletionDate(userCourse.getStartDate().plusMonths(duration));
 			System.out.println(userCourse);
-			userCourse.totalAmount=discount();
+			userCourse.setTotalAmount(discount());
 			impl1.addCourseDurationDate(userCourse);
 			System.out.println(userCourse);
 		}
@@ -77,10 +77,10 @@ public class TestUserCourse {
 		Scanner sc=new Scanner(System.in);
 		UserCourse uc1=new UserCourse();
 		System.out.println("Enter User Id:");
-		uc1.userId=sc.nextInt();
+		uc1.setUserId(sc.nextInt());
 		 UserCourseDAOImpl impl1=new UserCourseDAOImpl();
 		 List<UserCourse> list1=new ArrayList<UserCourse>();
-		 list1=impl1.getUserCourseDetails(uc1.userId);
+		 list1=impl1.getUserCourseDetails(uc1.getUserId());
 			for (UserCourse userCourse : list1) 
 			{
 			System.out.println(userCourse);
@@ -96,11 +96,11 @@ public class TestUserCourse {
     	System.out.println("");
     	System.out.println("To Display the Discount Details of the User");
     	System.out.println("Enter User Id:");
-		uc.userId=sc.nextInt();
+		uc.setUserId(sc.nextInt());
 		System.out.println("Enter Course Id:");
 		c.setCourseId(sc.nextInt());
 		
-    	int courseCount=dis.getNoOfUser(uc.userId);
+    	int courseCount=dis.getNoOfUser(uc.getUserId());
     	System.out.println(courseCount);
     	int courseFees=dis.getCourseFees(c.getCourseId());
     	System.out.println(courseFees);

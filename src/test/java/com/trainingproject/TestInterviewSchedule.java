@@ -32,11 +32,11 @@ public class TestInterviewSchedule {
 		System.out.println("");
 		System.out.println("***Display Company Details Based on JobRequirement***");
 		System.out.println("Enter Job Requirement:");
-		inter.jobRequirement=sc.nextLine();
-		inter.jobRequirement+=sc.nextLine();
+		inter.setJobRequirement(sc.nextLine());
+		inter.setJobRequirement(inter.getJobRequirement() + sc.nextLine());
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
 		
-		list1=impl.getCompanyDetails(inter.jobRequirement);
+		list1=impl.getCompanyDetails(inter.getJobRequirement());
 		for (ClientCompany cmpy : list1)
 		{
 			System.out.println(cmpy);
@@ -51,9 +51,9 @@ public class TestInterviewSchedule {
 		System.out.println("");
 		System.out.println("***Display Company Count Based on JobRequirement***");
 		System.out.println("Enter Job Requirement:");
-		inter.jobRequirement=sc.nextLine();
-		inter.jobRequirement+=sc.nextLine();
-		int jobCount=impl.getNoOfCompanies(inter.jobRequirement);
+		inter.setJobRequirement(sc.nextLine());
+		inter.setJobRequirement(inter.getJobRequirement() + sc.nextLine());
+		int jobCount=impl.getNoOfCompanies(inter.getJobRequirement());
 		System.out.println(jobCount);
 		
 	}
@@ -64,8 +64,8 @@ public class TestInterviewSchedule {
 		InterviewSchedule inter=new InterviewSchedule();
 		System.out.println("");
 		System.out.println("Enter Interview Id:");
-		inter.interviewId=sc.nextInt();
-		impl.deleteSchedule(inter.interviewId);
+		inter.setInterviewId(sc.nextInt());
+		impl.deleteSchedule(inter.getInterviewId());
 	}
 	public static void testInsert() throws Exception
 	{
@@ -74,12 +74,12 @@ public class TestInterviewSchedule {
 		List<InterviewSchedule> list=new ArrayList<InterviewSchedule>();
 
 		InterviewSchedule is1=new InterviewSchedule();
-		is1.clientId=1111;
-		is1.jobTitle="python developer";
-		is1.jobRequirement="python";
-		is1.createdDate=currentDate;
-		is1.interviewDate=LocalDate.parse("2020-02-02");
-		is1.interviewTime= LocalTime.parse("10:00");
+		is1.setClientId(1111);
+		is1.setJobTitle("python developer");
+		is1.setJobRequirement("python");
+		is1.setCreatedDate(currentDate);
+		is1.setInterviewDate(LocalDate.parse("2020-02-02"));
+		is1.setInterviewTime(LocalTime.parse("10:00"));
 		
 		list.add(is1);
 		
