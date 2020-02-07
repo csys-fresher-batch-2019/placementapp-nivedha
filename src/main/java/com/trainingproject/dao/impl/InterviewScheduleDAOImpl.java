@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 import java.time.LocalDate;
@@ -21,118 +22,147 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 
 	public void addSchedule(InterviewSchedule schedule) throws Exception {
 		
-		Connection con=DbConnection.getConnection();
+	
 		String sql = "insert into schedule(interview_id,client_id,job_title,job_requirement,created_date,interview_date,interview_time)"
 				+ "values(interview_id_seq.nextval,?,?,?,?,?,?)";
 		System.out.println("");
 		System.out.println("***Add Interview Schedule Details***");
 		System.out.println(sql);
-		PreparedStatement pst = con.prepareStatement(sql);
-		pst.setInt(1, schedule.clientId);
-		pst.setString(2, schedule.jobTitle);
-		pst.setString(3, schedule.jobRequirement);
-		pst.setDate(4, Date.valueOf(schedule.createdDate));
-		pst.setDate(5, Date.valueOf(schedule.interviewDate));
-		pst.setString(6, schedule.interviewTime.toString());
+		try(Connection con=DbConnection.getConnection();PreparedStatement pst = con.prepareStatement(sql);)
+		{
+		pst.setInt(1, schedule.getClientId());
+		pst.setString(2, schedule.getJobTitle());
+		pst.setString(3, schedule.getJobRequirement());
+		pst.setDate(4, Date.valueOf(schedule.getCreatedDate()));
+		pst.setDate(5, Date.valueOf(schedule.getInterviewDate()));
+		pst.setString(6, schedule.getInterviewTime().toString());
 	    int row=pst.executeUpdate();
-	    System.out.println(row);
-		con.close();
+		}
+		catch(SQLException e)
+		{
+	e.printStackTrace();	
+		}
+	   
 	}
 
 	public List<InterviewSchedule> allInterviewSchedules() throws Exception {
 		
 		List<InterviewSchedule> list=new ArrayList<InterviewSchedule>();
-		Connection con=DbConnection.getConnection();
+		
 		String sql ="select * from schedule";
 		System.out.println("");
 		System.out.println("***Display Interview Schedule Details***");
 		System.out.println(sql);
-		Statement stmt=con.createStatement();
-		ResultSet rs=stmt.executeQuery(sql);
+		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
+		{
+		try(ResultSet rs=stmt.executeQuery();)
+		{
 		while(rs.next())
 		{
 			InterviewSchedule in=new InterviewSchedule();
-			in.interviewId=rs.getInt("interview_id");
-			in.clientId=rs.getInt("client_id");
-			in.jobTitle=rs.getString("job_title");
-			in.jobRequirement=rs.getString("job_requirement");
+			in.setInterviewId(rs.getInt("interview_id"));
+			in.setClientId(rs.getInt("client_id"));
+			in.setJobTitle(rs.getString("job_title"));
+			in.setJobRequirement(rs.getString("job_requirement"));
 			Date d=rs.getDate("created_date");
 			if(d!=null)
 			{
 				LocalDate ld=d.toLocalDate();
-				in.createdDate=ld;
+				in.setCreatedDate(ld);
 			}
 	        Date id=rs.getDate("interview_date");
 	        if(id!=null)
 	        {
 	        	LocalDate l=id.toLocalDate();
-	        	in.interviewDate=l;
+	        	in.setInterviewDate(l);
 	        }
-			in.interviewTime=LocalTime.parse(rs.getString("interview_time"));
+			in.setInterviewTime(LocalTime.parse(rs.getString("interview_time")));
 			list.add(in);
 			}
-		con.close();
+		}
+		}
+		catch(SQLException e)
+		{
+	e.printStackTrace();	
+		}
 		return list;
 	
 	}
 
 	public void deleteSchedule(int interviewId) throws Exception {
 		
-		Connection con=DbConnection.getConnection();
 		String sql="delete from schedule where interview_id=?";
 		System.out.println("");
 		System.out.println("***Delete Interview Schedule Details***");
 		System.out.println(sql);
-		PreparedStatement pst=con.prepareStatement(sql);
+		try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
+		{
 		pst.setInt(1, interviewId);
         int row=pst.executeUpdate();
         System.out.println(row);
-		con.close();
+		}
+        catch(SQLException e)
+		{
+	e.printStackTrace();	
+		}
 	}
 
 	public int getNoOfCompanies(String jobRequirement) throws Exception {
 		
-		Connection con=DbConnection.getConnection();
 		String sql="select count(interview_id) from schedule where job_requirement like ?";
 		System.out.println("");
 		System.out.println("***Display the count based on job Requirement***");
 		System.out.println(sql);
-        PreparedStatement pst=con.prepareStatement(sql);
+		int a=0;
+       try(	Connection con=DbConnection.getConnection(); PreparedStatement pst=con.prepareStatement(sql);)
+       {
         pst.setString(1, "%"+jobRequirement+"%");
-        ResultSet rs=pst.executeQuery();
-        int a=0;
+        
+      try(ResultSet rs=pst.executeQuery();)
+      {
 		if(rs.next())
 		{
 			a=rs.getInt("count(interview_id)");
 		}
-		con.close();
+       }
+       }
+       catch(SQLException e)
+		{
+	e.printStackTrace();	
+		}
 		return a;
 	}
 
 	public List<ClientCompany> getCompanyDetails(String jobRequirement) throws Exception {
 		
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
-		Connection con=DbConnection.getConnection();
 		String sql="select client_id,company_name,company_type,company_address,ph_no,contact_person,email_id from clientcmpy where client_id in (select client_id from schedule where job_requirement=?)";
 		System.out.println("");
 		System.out.println("***Display the company details based on the job title***");
 		System.out.println(sql);
-        PreparedStatement pst=con.prepareStatement(sql);
+        try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql); )
+        {
         pst.setString(1, jobRequirement);
-        ResultSet rs=pst.executeQuery();
+       try(ResultSet rs=pst.executeQuery();)
+       {
 		while(rs.next())
 		{
 			ClientCompany cc=new ClientCompany();
-		    cc.clientId=rs.getInt("client_id");
-			cc.companyName=rs.getString("company_name");
-			cc.companyType=rs.getString("company_type");
-			cc.companyAddress=rs.getString("company_address");
-			cc.phoneNo=rs.getLong("ph_no");
-			cc.contactPerson=rs.getString("contact_person");
-			cc.emailId=rs.getString("email_id");
+		    cc.setClientId(rs.getInt("client_id"));
+			cc.setCompanyName(rs.getString("company_name"));
+			cc.setCompanyType(rs.getString("company_type"));
+			cc.setCompanyAddress(rs.getString("company_address"));
+			cc.setPhoneNo(rs.getLong("ph_no"));
+			cc.setContactPerson(rs.getString("contact_person"));
+			cc.setEmailId(rs.getString("email_id"));
             list1.add(cc);
 		}
-		con.close();
+        }
+        }
+        catch(SQLException e)
+		{
+	e.printStackTrace();	
+		}
 		return list1;
 	}
 

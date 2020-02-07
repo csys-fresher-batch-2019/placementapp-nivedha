@@ -2,6 +2,9 @@ package com.trainingproject.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import com.trainingproject.DbConnection;
 import com.trainingproject.dao.CommentsDAO;
 import com.trainingproject.model.Comments;
@@ -9,23 +12,93 @@ import com.trainingproject.model.Comments;
 public class CommentsDAOImpl implements CommentsDAO {
 
 	public void addComments(Comments c) throws Exception {
-		Connection con=DbConnection.getConnection();
-		String sql = "insert into comments(comments_id,user_id,user_name,course_name,trainer_id,trainer_name,trainer_comments,institution_rating,trainer_rating)" + 
-				"values(comments_id_sqn.nextval,?,?,?,?,?,?,?,?)";
+		
+		String sql = "insert into comments(comments_id,user_course_id,trainer_id,course_comments,institution_rating,trainer_rating)" + 
+				"values(comments_id_sqn.nextval,?,?,?,?,?)";
 		System.out.println("");
-		//System.out.println(sql);
-	    PreparedStatement pst = con.prepareStatement(sql);
-		pst.setInt(1, c.userId);
-		pst.setString(2,c.userName);
-		pst.setString(3,c.courseName);
-		pst.setInt(4,c.trainerId);
-		pst.setString(5,c.trainerName);
-		pst.setString(6,c.trainerComments);
-		pst.setInt(7,c.institutionRating);
-		pst.setInt(8,c.trainerRating);
+	
+	    try(Connection con=DbConnection.getConnection();PreparedStatement pst = con.prepareStatement(sql);)
+	    {
+		pst.setInt(1, c.getUserCourseId());
+		pst.setInt(2,c.getTrainerId());
+		pst.setString(3,c.getCourseComments());
+		pst.setInt(4,c.getInstitutionRating());
+		pst.setInt(5,c.getTrainerRating());
 		int row=pst.executeUpdate();
 		System.out.println("***Comments Added successfully***");
-	    con.close();
+	    }
+	    catch(SQLException e)
+		{
+	e.printStackTrace();	
+		}
 	}
+	public String getUserName(int userCourseId) throws Exception 
+	{
+		
+		String sql="select user_name from registration where user_id=(select user_id from usercourse where user_course_id=?)";
+		String a=null;
+		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
+        {
+        stmt.setInt(1, userCourseId);
+        try(ResultSet rs=stmt.executeQuery();)
+        {
+		while(rs.next())
+		{
+			a=rs.getString("user_name");
+		}
+        }
+        }
+		 catch(SQLException e)
+		{
+	     e.printStackTrace();	
+		}
+		return a;
+	}
+	public String getCourseName(int userCourseId) throws Exception 
+	{
+		
+		String sql="select course_name from course where course_id=(select course_id from usercourse where user_course_id=?)";
+		String a=null;
+		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
+        {
+        stmt.setInt(1, userCourseId);
+		try(ResultSet rs=stmt.executeQuery();)
+		{
+        while(rs.next())
+		{
+			a=rs.getString("course_name");
+		}
+        }
+        }
+		 catch(SQLException e)
+		{
+	     e.printStackTrace();	
+		}
+		return a;
+	}
+	
+	public String getTrainerName(int trainerId) throws Exception 
+	{
+		
+		String sql="select trainer_name from trainer where trainer_id=?";
+		String b=null;
+		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
+        {
+        	stmt.setInt(1, trainerId);   
+        try(ResultSet rs=stmt.executeQuery();)
+        {
+		while(rs.next())
+		{
+			b=rs.getString("trainer_name");
+		}
+        }
+        }
+		catch(SQLException e)
+		{
+	     e.printStackTrace();	
+		}
+		return b;
+	}
+
 
 }

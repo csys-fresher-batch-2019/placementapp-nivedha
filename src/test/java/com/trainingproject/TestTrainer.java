@@ -13,19 +13,19 @@ public class TestTrainer {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Trainer details:");
 		System.out.println("Enter Trainer Name:");
-		t.trainerName=sc.nextLine();
-		t.trainerName+=sc.nextLine();
+		t.setTrainerName(sc.nextLine());
+		t.setTrainerName(t.getTrainerName() + sc.nextLine());
 		System.out.println("Enter Trainer Qualification:");
-		t.trainerQualification=sc.next();
+		t.setTrainerQualification(sc.next());
 		System.out.println("Enter Trainer Specialist:");
-		t.trainerSpecialist=sc.nextLine();
-		t.trainerSpecialist+=sc.nextLine();
+		t.setTrainerSpecialist(sc.nextLine());
+		t.setTrainerSpecialist(t.getTrainerSpecialist() + sc.nextLine());
 		System.out.println("Enter Trainer Experience:");
-		t.trainerExperience=sc.nextInt();
+		t.setTrainerExperience(sc.nextInt());
 		System.out.println("Enter Trainer EMail Id:");
-		t.emailId=sc.next();
+		t.setEmailId(sc.next());
 		System.out.println("Enter Trainer Contact No:");
-		t.contactNumber=sc.nextLong();
+		t.setContactNumber(sc.nextLong());
 		
 		TrainerDAOImpl impl=new TrainerDAOImpl();
 		impl.addTrainerDetails(t);

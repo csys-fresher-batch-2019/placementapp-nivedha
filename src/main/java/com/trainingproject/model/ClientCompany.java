@@ -1,14 +1,70 @@
 package com.trainingproject.model;
 
 public class ClientCompany {
-	public  int clientId;
-	public  String companyName;
-	public  String companyType;
-	public  String companyAddress;
-	public  long phoneNo;
-	public  String contactPerson;
-	public  String emailId; 
+	private  int clientId;
+	private  String companyName;
+	private  String companyType;
+	private  String companyAddress;
+	private  long phoneNo;
+	private  String contactPerson;
+	private  String emailId; 
 	
+	public int getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getCompanyType() {
+		return companyType;
+	}
+
+	public void setCompanyType(String companyType) {
+		this.companyType = companyType;
+	}
+
+	public String getCompanyAddress() {
+		return companyAddress;
+	}
+
+	public void setCompanyAddress(String companyAddress) {
+		this.companyAddress = companyAddress;
+	}
+
+	public long getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(long phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public String getContactPerson() {
+		return contactPerson;
+	}
+
+	public void setContactPerson(String contactPerson) {
+		this.contactPerson = contactPerson;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
 	public String toString() {
 	
 	StringBuffer content=new StringBuffer();

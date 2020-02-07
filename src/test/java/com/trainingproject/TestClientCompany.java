@@ -32,9 +32,9 @@ public class TestClientCompany {
 		System.out.println("");
 	    System.out.println("***Display Company Details***");
 		System.out.println("Enter Company Name:");
-		cc.companyName=sc.nextLine();
-		cc.companyName+=sc.nextLine();
-		list1=impl.searchByCompany(cc.companyName);
+		cc.setCompanyName(sc.nextLine());
+		cc.setCompanyName(cc.getCompanyName() + sc.nextLine());
+		list1=impl.searchByCompany(cc.getCompanyName());
 		for(ClientCompany client:list1)
 		{
 			System.out.println(client);
@@ -73,20 +73,20 @@ public class TestClientCompany {
 				
 		ClientCompany cc=new ClientCompany();
 		System.out.println("Enter Company Name:");
-		cc.companyName=sc.nextLine();
-		cc.companyName+=sc.nextLine();
+		cc.setCompanyName(sc.nextLine());
+		cc.setCompanyName(cc.getCompanyName() + sc.nextLine());
 		System.out.println("Enter Company Type:");
-		cc.companyType=sc.next();
+		cc.setCompanyType(sc.next());
 		System.out.println("Enter Company Address:");
-		cc.companyAddress=sc.nextLine();
-		cc.companyAddress+=sc.nextLine();
+		cc.setCompanyAddress(sc.nextLine());
+		cc.setCompanyAddress(cc.getCompanyAddress() + sc.nextLine());
 		System.out.println("Enter Mobile Number:");
-		cc.phoneNo=sc.nextLong();
+		cc.setPhoneNo(sc.nextLong());
 		System.out.println("Enter Contact Person:");
-		cc.contactPerson=sc.nextLine();
-		cc.contactPerson+=sc.nextLine();
+		cc.setContactPerson(sc.nextLine());
+		cc.setContactPerson(cc.getContactPerson() + sc.nextLine());
 		System.out.println("Enter Mail Id:");
-		cc.emailId=sc.next();
+		cc.setEmailId(sc.next());
 		
 		list.add(cc);
 		System.out.println("Company details is added");
@@ -110,8 +110,8 @@ public class TestClientCompany {
 		System.out.println("");
 		System.out.println("***Delete Company Details***");
 		System.out.println("Enter Client Id:");
-		cc.clientId=sc.nextInt();
-		impl.deleteCompanyDetails(cc.clientId);
+		cc.setClientId(sc.nextInt());
+		impl.deleteCompanyDetails(cc.getClientId());
 		sc.close();
 	}
 	
@@ -124,12 +124,12 @@ public class TestClientCompany {
 		System.out.println("");
 		System.out.println("***Update Company Details***");
 		System.out.println("Enter Company Name:");
-		cc.companyName=sc.nextLine();
-		cc.companyName+=sc.nextLine();
+		cc.setCompanyName(sc.nextLine());
+		cc.setCompanyName(cc.getCompanyName() + sc.nextLine());
 		System.out.println("Enter Contact Person:");
-		cc.contactPerson=sc.nextLine();
-		cc.contactPerson+=sc.nextLine();
-		impl.updateCompanyDetails(cc.contactPerson,cc.companyName);
+		cc.setContactPerson(sc.nextLine());
+		cc.setContactPerson(cc.getContactPerson() + sc.nextLine());
+		impl.updateCompanyDetails(cc.getContactPerson(),cc.getCompanyName());
 	}
 
 }

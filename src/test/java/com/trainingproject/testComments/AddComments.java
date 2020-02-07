@@ -1,4 +1,4 @@
-package com.trainingproject.comments;
+package com.trainingproject.testComments;
 
 import com.trainingproject.TestComments;
 

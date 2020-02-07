@@ -2,22 +2,118 @@ package com.trainingproject.model;
 
 public class JoinUserCompany {
 
-	public int userId;
-	public String userName;
-	public String qualification;
-	public String mailId;
-	public long mobileNo;
-	public String userCity;
-	public String gender;
-	public  int clientId;
-	public  String companyName;
-	public  String companyType;
-	public  String companyAddress;
-	public  long phoneNo;
-	public  String contactPerson;
-	public  String emailId;
-	public String interPerform;
-	public String interStatus;
+	private int userId;
+	private String userName;
+	private String qualification;
+	private String mailId;
+	private long mobileNo;
+	private String userCity;
+	private String gender;
+	private  int clientId;
+	private  String companyName;
+	private  String companyType;
+	private  String companyAddress;
+	private  long phoneNo;
+	private  String contactPerson;
+	private  String emailId;
+	private String interPerform;
+	private String interStatus;
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getQualification() {
+		return qualification;
+	}
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+	public String getMailId() {
+		return mailId;
+	}
+	public void setMailId(String mailId) {
+		this.mailId = mailId;
+	}
+	public long getMobileNo() {
+		return mobileNo;
+	}
+	public void setMobileNo(long mobileNo) {
+		this.mobileNo = mobileNo;
+	}
+	public String getUserCity() {
+		return userCity;
+	}
+	public void setUserCity(String userCity) {
+		this.userCity = userCity;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public int getClientId() {
+		return clientId;
+	}
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	public String getCompanyType() {
+		return companyType;
+	}
+	public void setCompanyType(String companyType) {
+		this.companyType = companyType;
+	}
+	public String getCompanyAddress() {
+		return companyAddress;
+	}
+	public void setCompanyAddress(String companyAddress) {
+		this.companyAddress = companyAddress;
+	}
+	public long getPhoneNo() {
+		return phoneNo;
+	}
+	public void setPhoneNo(long phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+	public String getContactPerson() {
+		return contactPerson;
+	}
+	public void setContactPerson(String contactPerson) {
+		this.contactPerson = contactPerson;
+	}
+	public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+	public String getInterPerform() {
+		return interPerform;
+	}
+	public void setInterPerform(String interPerform) {
+		this.interPerform = interPerform;
+	}
+	public String getInterStatus() {
+		return interStatus;
+	}
+	public void setInterStatus(String interStatus) {
+		this.interStatus = interStatus;
+	}
 	@Override
 	public String toString() {
 		return " *************************************\n USER DETAILS: \n userId: " + userId + "\n"
