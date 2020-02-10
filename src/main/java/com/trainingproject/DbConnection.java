@@ -14,7 +14,7 @@ public class DbConnection  {
 		connection=DriverManager.getConnection(url,"system","oracle");
 		
 	} catch (ClassNotFoundException e) {
-		// TODO Auto-generated catch block
+		
 		throw new RuntimeException("Driver class not found");
 	 }catch (SQLException e)
 	{

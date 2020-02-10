@@ -20,7 +20,7 @@ public class Logger {
 	}
 	public void error(Exception e) {
 		System.err.println(e.getMessage());
-		e.printStackTrace();
+		//e.printStackTrace();
 		
 	}
 
