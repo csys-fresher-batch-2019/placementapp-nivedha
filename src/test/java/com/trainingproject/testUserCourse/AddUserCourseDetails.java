@@ -1,5 +1,6 @@
 package com.trainingproject.testUserCourse;
 
+import com.trainingproject.DbException;
 import com.trainingproject.TestUserCourse;
 
 public class AddUserCourseDetails {

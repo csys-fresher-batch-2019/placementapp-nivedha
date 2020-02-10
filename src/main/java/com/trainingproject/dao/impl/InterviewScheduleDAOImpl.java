@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.trainingproject.DbConnection;
+import com.trainingproject.DbException;
 import com.trainingproject.dao.InterviewScheduleDAO;
 import com.trainingproject.logger.Logger;
 import com.trainingproject.model.ClientCompany;

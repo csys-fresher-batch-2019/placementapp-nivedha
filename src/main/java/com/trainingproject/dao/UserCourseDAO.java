@@ -3,6 +3,7 @@ package com.trainingproject.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.trainingproject.DbException;
 import com.trainingproject.model.UserCourse;
 
 public interface UserCourseDAO 

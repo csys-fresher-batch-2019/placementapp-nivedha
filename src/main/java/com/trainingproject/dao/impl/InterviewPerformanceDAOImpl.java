@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.trainingproject.DbConnection;
+import com.trainingproject.DbException;
 import com.trainingproject.dao.InterviewPerformanceDAO;
 import com.trainingproject.logger.Logger;
 import com.trainingproject.model.InterviewPerformance;

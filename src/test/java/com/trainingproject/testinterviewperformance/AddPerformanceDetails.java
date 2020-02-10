@@ -1,5 +1,6 @@
 package com.trainingproject.testinterviewperformance;
 
+import com.trainingproject.DbException;
 import com.trainingproject.TestInterviewPerformance;
 
 public class AddPerformanceDetails {

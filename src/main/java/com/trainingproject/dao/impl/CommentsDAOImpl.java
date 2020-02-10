@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.trainingproject.DbConnection;
+import com.trainingproject.DbException;
 import com.trainingproject.dao.CommentsDAO;
 import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Comments;

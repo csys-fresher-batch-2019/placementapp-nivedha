@@ -2,6 +2,7 @@ package com.trainingproject.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.trainingproject.DbException;
 import com.trainingproject.model.Course;
 
 public interface CourseDAO {

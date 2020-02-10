@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.trainingproject.DbConnection;
+import com.trainingproject.DbException;
 import com.trainingproject.dao.UserCourseDAO;
 import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Course;
@@ -22,7 +23,6 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 
 
 	public void addCourseDurationDate(UserCourse uc) throws DbException {
-		
 		
 		String sql = "insert into usercourse" + 
 				"(user_course_id,user_id,course_id,start_date,completion_date,total_amount)" + 

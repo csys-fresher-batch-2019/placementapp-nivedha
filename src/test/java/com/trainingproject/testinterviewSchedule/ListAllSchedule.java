@@ -1,5 +1,6 @@
 package com.trainingproject.testinterviewSchedule;
 
+import com.trainingproject.DbException;
 import com.trainingproject.TestInterviewSchedule;
 
 public class ListAllSchedule {

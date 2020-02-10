@@ -2,6 +2,7 @@ package com.trainingproject.dao;
 
 import java.util.List;
 
+import com.trainingproject.DbException;
 import com.trainingproject.model.ClientCompany;
 import com.trainingproject.model.InterviewSchedule;
 

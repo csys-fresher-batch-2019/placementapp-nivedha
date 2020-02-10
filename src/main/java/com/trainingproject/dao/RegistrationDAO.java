@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.trainingproject.DbException;
 import com.trainingproject.model.Registration;
 
 public interface RegistrationDAO {

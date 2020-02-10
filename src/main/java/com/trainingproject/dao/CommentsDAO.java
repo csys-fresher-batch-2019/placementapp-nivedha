@@ -1,5 +1,6 @@
 package com.trainingproject.dao;
 
+import com.trainingproject.DbException;
 import com.trainingproject.model.Comments;
 
 public interface CommentsDAO {

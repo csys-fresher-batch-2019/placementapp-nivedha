@@ -1,5 +1,6 @@
 package com.trainingproject.testregistration;
 
+import com.trainingproject.DbException;
 import com.trainingproject.dao.impl.LoginDAOImpl;
 
 public class TestLogin {

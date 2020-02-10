@@ -1,5 +1,6 @@
 package com.trainingproject.joinqueries;
 
+import com.trainingproject.DbException;
 import com.trainingproject.TestJoin;
 
 public class JoinCompanyScheduleDetails {

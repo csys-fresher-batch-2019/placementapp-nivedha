@@ -1,5 +1,6 @@
 package com.trainingproject.testComments;
 
+import com.trainingproject.DbException;
 import com.trainingproject.TestComments;
 
 public class AddComments {

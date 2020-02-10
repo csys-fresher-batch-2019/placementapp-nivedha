@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.trainingproject.DbConnection;
+import com.trainingproject.DbException;
 import com.trainingproject.dao.RegistrationDAO;
 import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Course;
@@ -38,7 +39,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 	   }
 	   catch(SQLException e)
 		{
-	log.error(e);	
+	    log.error(e);	
 		}
 		
 	}
