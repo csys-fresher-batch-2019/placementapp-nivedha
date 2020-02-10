@@ -7,16 +7,16 @@ import com.trainingproject.model.InterviewSchedule;
 
 public interface InterviewScheduleDAO {
 	
-	void addSchedule(InterviewSchedule list) throws Exception;
+	void addSchedule(InterviewSchedule list) throws DbException;
 	
-	List<InterviewSchedule> allInterviewSchedules() throws Exception;
+	List<InterviewSchedule> allInterviewSchedules() throws DbException;
 	
-	void deleteSchedule(int interviewId) throws Exception;
+	void deleteSchedule(int interviewId) throws DbException;
 	
 	
-	int getNoOfCompanies(String jobRequirement) throws Exception;
+	int getNoOfCompanies(String jobRequirement) throws DbException;
 	
 	//select * from clientcmpy where client_id=(select client_id from schedule where job_title='software developer');
-	List<ClientCompany> getCompanyDetails(String jobTitle) throws Exception;
+	List<ClientCompany> getCompanyDetails(String jobTitle) throws DbException;
     
 }

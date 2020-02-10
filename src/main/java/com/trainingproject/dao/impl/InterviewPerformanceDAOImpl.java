@@ -1,11 +1,9 @@
 package com.trainingproject.dao.impl;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +16,7 @@ import com.trainingproject.model.InterviewPerformance;
 public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 
 	private static final Logger log=Logger.getInstance();
-	public void addPerformanceDetails(int clientId,int userId,String interPerform,String interStatus,int marks) throws Exception {
+	public void addPerformanceDetails(int clientId,int userId,String interPerform,String interStatus,int marks) throws DbException {
 		
 		String sql = "insert into intervieww(sl_no,client_id,user_id,inter_perform,inter_status,marks)values(sl_no_sqn.nextval,?,?,?,?,?)";	
 		log.getInput("");
@@ -41,7 +39,7 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 		
 	}
 
-	public List<InterviewPerformance> viewPerformanceStatus() throws Exception {
+	public List<InterviewPerformance> viewPerformanceStatus() throws DbException {
 		
         List<InterviewPerformance> list=new ArrayList<InterviewPerformance>();
 		

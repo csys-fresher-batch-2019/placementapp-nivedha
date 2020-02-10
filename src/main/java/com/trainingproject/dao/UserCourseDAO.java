@@ -7,9 +7,9 @@ import com.trainingproject.model.UserCourse;
 
 public interface UserCourseDAO 
 {
-	void addCourseDurationDate(UserCourse list) throws Exception;
+	void addCourseDurationDate(UserCourse list) throws DbException;
 	
-	int getDuration(int Duration) throws Exception;
+	int getDuration(int Duration) throws DbException;
 	
-	List<UserCourse> getUserCourseDetails(int userId) throws Exception;
+	List<UserCourse> getUserCourseDetails(int userId) throws DbException;
 }

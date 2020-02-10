@@ -13,7 +13,7 @@ import com.trainingproject.model.UserCourse;
 public class TestCourse {
 	
 	private static final Logger log=Logger.getInstance();
-	public static void testGetCourseFees() throws Exception
+	public static void testGetCourseFees() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		CourseDAOImpl obj=new CourseDAOImpl();
@@ -25,7 +25,7 @@ public class TestCourse {
 		int fees=obj.getFees(c.getCourseName());
 		log.getInput(fees);
 	}
-	public static void testNamesByfeesRange() throws Exception
+	public static void testNamesByfeesRange() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		CourseDAOImpl obj=new CourseDAOImpl();
@@ -44,11 +44,14 @@ public class TestCourse {
 		}
 	
 	}
-	public static void testAllCourses() throws Exception
+	public static void testAllCourses() throws DbException
 	{
+		Scanner sc=new Scanner(System.in);
 		CourseDAOImpl obj=new CourseDAOImpl();
 		List<Course> list=new ArrayList<Course>();
-		list=obj.allCourseDetails(".net");
+		log.getInput("Enter Course Name");
+		String courseName=sc.nextLine();
+		list=obj.allCourseDetails(courseName);
 		log.getInput("");
 		for(Course courseList:list)
 		{
@@ -57,7 +60,7 @@ public class TestCourse {
 	}
 	
 	
-	public static void testMinFees() throws Exception
+	public static void testMinFees() throws DbException
 	{
 		
 		CourseDAOImpl obj=new CourseDAOImpl();
@@ -72,7 +75,7 @@ public class TestCourse {
 
 	}
 	
-	public static void testUpdate() throws Exception
+	public static void testUpdate() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		CourseDAOImpl obj=new CourseDAOImpl();
@@ -86,7 +89,7 @@ public class TestCourse {
 		obj.updateCourse(c.getCourseName(),c.getCourseFees());
 	}
 	
-	public static void testDelete() throws Exception 
+	public static void testDelete() throws DbException 
 	{
 		//delete course details
 		Scanner sc=new Scanner(System.in);
@@ -99,7 +102,7 @@ public class TestCourse {
 		obj.deleteCourse(c.getCourseId());
 	}
 	
-	public static void testInsert() throws Exception 
+	public static void testInsert() throws DbException 
 	{
 		Scanner sc=new Scanner(System.in);
 		//log.getInput("Enter no of courses to add");
@@ -130,7 +133,7 @@ public class TestCourse {
 					
 		
 	}
-	public static void testCourseNames() throws Exception
+	public static void testCourseNames() throws DbException
 	{
 		CourseDAOImpl obj=new CourseDAOImpl();
 		List<Course> list=new ArrayList<Course>();

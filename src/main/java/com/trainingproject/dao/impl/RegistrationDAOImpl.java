@@ -18,7 +18,7 @@ import com.trainingproject.model.Registration;
 public class RegistrationDAOImpl implements RegistrationDAO{
 	private static final Logger log=Logger.getInstance();
 
-	public void addUserDetails(Registration reg) throws Exception {
+	public void addUserDetails(Registration reg) throws DbException {
 		
 		String sql = "insert into registration(user_id,user_name,user_password,user_city,mobile_no,mail_id,qualification,gender) values(user_id_seq.nextval,?,?,?,?,?,?,?)";
 		log.getInput("");
@@ -43,7 +43,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 		
 	}
 	
-	public void updateUserDetails(int userId, long mobileNo) throws Exception {
+	public void updateUserDetails(int userId, long mobileNo) throws DbException {
 		 
 		 String sql="update registration set mobile_no=? where user_id=?";
 		 log.getInput("");
@@ -63,7 +63,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 	}
 
 
-	public List<Registration> allUserDetails() throws Exception {
+	public List<Registration> allUserDetails() throws DbException {
 		
 		List<Registration> list1=new ArrayList<Registration>();
 		
@@ -97,7 +97,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 		return list1;
 	}
 
-	public void deleteUserDetails(int userId) throws Exception {
+	public void deleteUserDetails(int userId) throws DbException {
 		
 		String sql="delete from registration where user_id=?";
 		log.getInput("");
@@ -115,7 +115,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 		
 	}
 
-	public int getNoOfUsers() throws Exception {
+	public int getNoOfUsers() throws DbException {
 		
 		String sql="select count(user_id) from registration";
 		log.getInput("");
@@ -141,7 +141,7 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 		return a;
 	}
 
-	public List<Registration> getDegreeWiseNoOfUsers() throws Exception {
+	public List<Registration> getDegreeWiseNoOfUsers() throws DbException {
 		
 		List<Registration> list1=new ArrayList<Registration>();
 		String sql="select qualification as qualification,count(user_id) from registration group by qualification";

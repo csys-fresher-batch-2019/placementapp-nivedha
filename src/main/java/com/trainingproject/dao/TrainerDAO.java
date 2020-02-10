@@ -6,6 +6,6 @@ import com.trainingproject.model.Trainer;
 
 public interface TrainerDAO {
 	
-	public void addTrainerDetails(Trainer t) throws Exception;
+	public void addTrainerDetails(Trainer t) throws DbException;
 
 }

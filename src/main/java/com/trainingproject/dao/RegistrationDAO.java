@@ -9,15 +9,15 @@ import com.trainingproject.model.Registration;
 
 public interface RegistrationDAO {
 
-	void addUserDetails(Registration list) throws Exception;
+	void addUserDetails(Registration list) throws DbException;
 	
-	void updateUserDetails(int userId,long mobileNo) throws Exception;
+	void updateUserDetails(int userId,long mobileNo) throws DbException;
 	
-	List<Registration> allUserDetails() throws Exception;
+	List<Registration> allUserDetails() throws DbException;
 	
-	void deleteUserDetails(int userId) throws Exception;
+	void deleteUserDetails(int userId) throws DbException;
 	
-	int getNoOfUsers() throws Exception;
+	int getNoOfUsers() throws DbException;
 	
-	List<Registration> getDegreeWiseNoOfUsers() throws Exception;
+	List<Registration> getDegreeWiseNoOfUsers() throws DbException;
 }

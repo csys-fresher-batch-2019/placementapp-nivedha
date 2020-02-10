@@ -8,7 +8,7 @@ import com.trainingproject.model.Comments;
 public class TestComments {
 	
 	private static final Logger log=Logger.getInstance();
-	public static void testAddComments() throws Exception
+	public static void testAddComments() throws DbException
 	{
 		CommentsDAOImpl impl=new CommentsDAOImpl();
 		Comments c=new Comments();
@@ -36,6 +36,6 @@ public class TestComments {
 		c.setInstitutionRating(sc.nextInt());
 		
 		impl.addComments(c);
-		log.getInput(c);
+		//log.getInput(c);
 	}
 }

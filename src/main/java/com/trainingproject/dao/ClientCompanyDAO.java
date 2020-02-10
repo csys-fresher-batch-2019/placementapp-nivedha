@@ -3,22 +3,23 @@ package com.trainingproject.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.trainingproject.DbException;
 import com.trainingproject.model.ClientCompany;
 
 public interface ClientCompanyDAO {
 	
-	void addCompanyDetails(ClientCompany client) throws Exception;
+	void addCompanyDetails(ClientCompany client) throws DbException;
 	
-	List<ClientCompany> listCompanyDetails() throws Exception;
+	List<ClientCompany> listCompanyDetails() throws DbException;
 	
-	List<ClientCompany> searchByCompany(String companyName) throws Exception;
+	List<ClientCompany> searchByCompany(String companyName) throws DbException;
 	
-	void deleteCompanyDetails(int clientId) throws Exception;
+	void deleteCompanyDetails(int clientId) throws DbException;
 	
-	List<ClientCompany> getCompanyNames() throws Exception;
+	List<ClientCompany> getCompanyNames() throws DbException;
 	
-	int getNoOfCompanies() throws Exception;
+	int getNoOfCompanies() throws DbException;
 	
-	void updateCompanyDetails(String companyName,String contactPerson) throws Exception;
+	void updateCompanyDetails(String companyName,String contactPerson) throws DbException;
 
 }

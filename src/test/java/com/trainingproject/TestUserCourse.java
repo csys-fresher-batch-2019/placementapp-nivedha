@@ -14,7 +14,7 @@ import com.trainingproject.model.UserCourse;
 public class TestUserCourse {
 
 	private static final Logger log=Logger.getInstance();
-	public static void userCourseDetails()throws Exception
+	public static void userCourseDetails()throws DbException
 	{
 		//List all course details
 				CourseDAOImpl obj=new CourseDAOImpl();
@@ -37,7 +37,7 @@ public class TestUserCourse {
 				}
 	
 	}
-	public static void testInsert() throws Exception
+	public static void testInsert() throws DbException
 	{
 		LocalDate currentDate = LocalDate.now();
 		Scanner sc=new Scanner(System.in);
@@ -74,7 +74,7 @@ public class TestUserCourse {
 		}
 				
 }
-	public static void testgetUserCourseDetails() throws Exception
+	public static void testgetUserCourseDetails() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		UserCourse uc1=new UserCourse();
@@ -89,7 +89,7 @@ public class TestUserCourse {
 			}
 		
 	}
-	public static double discount()throws Exception
+	public static double discount()throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
         DiscountCalculation dis=new DiscountCalculation();

@@ -5,8 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -17,12 +15,11 @@ import com.trainingproject.dao.InterviewScheduleDAO;
 import com.trainingproject.logger.Logger;
 import com.trainingproject.model.ClientCompany;
 import com.trainingproject.model.InterviewSchedule;
-import com.trainingproject.model.Registration;
 
 public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 	private static final Logger log=Logger.getInstance();
 
-	public void addSchedule(InterviewSchedule schedule) throws Exception {
+	public void addSchedule(InterviewSchedule schedule) throws DbException {
 		
 	
 		String sql = "insert into schedule(interview_id,client_id,job_title,job_requirement,created_date,interview_date,interview_time)"
@@ -47,7 +44,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 	   
 	}
 
-	public List<InterviewSchedule> allInterviewSchedules() throws Exception {
+	public List<InterviewSchedule> allInterviewSchedules() throws DbException {
 		
 		List<InterviewSchedule> list=new ArrayList<InterviewSchedule>();
 		
@@ -91,7 +88,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 	
 	}
 
-	public void deleteSchedule(int interviewId) throws Exception {
+	public void deleteSchedule(int interviewId) throws DbException {
 		
 		String sql="delete from schedule where interview_id=?";
 		log.getInput("");
@@ -109,7 +106,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 		}
 	}
 
-	public int getNoOfCompanies(String jobRequirement) throws Exception {
+	public int getNoOfCompanies(String jobRequirement) throws DbException {
 		
 		String sql="select count(interview_id) from schedule where job_requirement like ?";
 		log.getInput("");
@@ -135,7 +132,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 		return a;
 	}
 
-	public List<ClientCompany> getCompanyDetails(String jobRequirement) throws Exception {
+	public List<ClientCompany> getCompanyDetails(String jobRequirement) throws DbException {
 		
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
 		String sql="select client_id,company_name,company_type,company_address,ph_no,contact_person,email_id from clientcmpy where client_id in (select client_id from schedule where job_requirement=?)";

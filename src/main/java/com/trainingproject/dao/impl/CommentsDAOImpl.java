@@ -12,7 +12,7 @@ import com.trainingproject.model.Comments;
 
 public class CommentsDAOImpl implements CommentsDAO {
 	private static final Logger log=Logger.getInstance();
-	public void addComments(Comments c) throws Exception {
+	public void addComments(Comments c) throws DbException {
 		
 		String sql = "insert into comments(comments_id,user_course_id,trainer_id,course_comments,institution_rating,trainer_rating)" + 
 				"values(comments_id_sqn.nextval,?,?,?,?,?)";
@@ -33,7 +33,7 @@ public class CommentsDAOImpl implements CommentsDAO {
 	log.error(e);	
 		}
 	}
-	public String getUserName(int userCourseId) throws Exception 
+	public String getUserName(int userCourseId) throws DbException 
 	{
 		
 		String sql="select user_name from registration where user_id=(select user_id from usercourse where user_course_id=?)";
@@ -55,7 +55,7 @@ public class CommentsDAOImpl implements CommentsDAO {
 		}
 		return a;
 	}
-	public String getCourseName(int userCourseId) throws Exception 
+	public String getCourseName(int userCourseId) throws DbException 
 	{
 		
 		String sql="select course_name from course where course_id=(select course_id from usercourse where user_course_id=?)";
@@ -78,7 +78,7 @@ public class CommentsDAOImpl implements CommentsDAO {
 		return a;
 	}
 	
-	public String getTrainerName(int trainerId) throws Exception 
+	public String getTrainerName(int trainerId) throws DbException 
 	{
 		
 		String sql="select trainer_name from trainer where trainer_id=?";

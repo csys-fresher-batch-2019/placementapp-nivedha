@@ -9,7 +9,7 @@ import com.trainingproject.model.Trainer;
 public class TestTrainer {
 	
 	private static final Logger log=Logger.getInstance();
-	public static void testAddTrainerDetails() throws Exception
+	public static void testAddTrainerDetails() throws DbException
 	{
 		Trainer t=new Trainer();
 		Scanner sc=new Scanner(System.in);

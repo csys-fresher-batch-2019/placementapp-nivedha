@@ -11,7 +11,7 @@ import com.trainingproject.logger.Logger;
 
 public class LoginDAOImpl implements LoginDAO {
 	private static final Logger log=Logger.getInstance();
-	public void login(String userName,String userPassword) throws Exception {
+	public void login(String userName,String userPassword) throws DbException {
 		
 			
 			String sql = "select user_name,user_password from registration where user_name= '" + userName + "' and user_password = '"+ userPassword + "'";

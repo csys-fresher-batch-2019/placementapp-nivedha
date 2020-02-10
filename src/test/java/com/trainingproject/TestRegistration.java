@@ -12,7 +12,7 @@ import com.trainingproject.model.Registration;
 public class TestRegistration {
 
 	private static final Logger log=Logger.getInstance();
-	public static void testAllUserDetails() throws Exception
+	public static void testAllUserDetails() throws DbException
 	{
         List<Registration> list1=new ArrayList<Registration>();
 		RegistrationDAOImpl impl=new RegistrationDAOImpl();
@@ -22,7 +22,7 @@ public class TestRegistration {
 			log.getInput(register);
 		}
 	}
-	public static void testUserDegree() throws Exception
+	public static void testUserDegree() throws DbException
 	{
 		RegistrationDAOImpl impl=new RegistrationDAOImpl();
 		List<Registration> list1=new ArrayList<Registration>();
@@ -32,14 +32,14 @@ public class TestRegistration {
 			log.getInput(register.getQualification()+"="+register.getUserId());
 		}	
 	}
-	public static void testUserCount() throws Exception
+	public static void testUserCount() throws DbException
 	{
 		RegistrationDAOImpl impl=new RegistrationDAOImpl();
 		int usersCount=impl.getNoOfUsers();
 		log.getInput("No.of users Registered:"+usersCount);
 	}
 
-	public static void testInsert() throws Exception
+	public static void testInsert() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		//log.getInput("Enter no of Users:");
@@ -77,7 +77,7 @@ public class TestRegistration {
 		sc.close();
 }
 		
-	public static void testUpdate() throws Exception
+	public static void testUpdate() throws DbException
 		{
 			log.getInput("");
 			log.getInput("***Update User Details***");
@@ -91,7 +91,7 @@ public class TestRegistration {
             impl.updateUserDetails(userId, mobileNo);
 	        sc.close();
 		}
-	public static void testDelete() throws Exception
+	public static void testDelete() throws DbException
 		{
 			log.getInput("");
 			log.getInput("***Delete User Details***");

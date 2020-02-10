@@ -4,7 +4,7 @@ import com.trainingproject.TestRegistration;
 
 public class UserCount {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws DbException {
 		
 		TestRegistration.testUserCount();
 

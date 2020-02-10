@@ -13,7 +13,7 @@ import com.trainingproject.model.JoinUserCourse;
 public class TestJoin {
 	
 	private static final Logger log=Logger.getInstance();
-	public static void testJoinUserCourse()throws Exception
+	public static void testJoinUserCourse()throws DbException
 	{
 		JoinDAOImpl impl=new JoinDAOImpl();
 		List<JoinUserCourse> list=new ArrayList<JoinUserCourse>();
@@ -25,7 +25,7 @@ public class TestJoin {
         }
         
 	}
-	public static void testJoinUserCompany()throws Exception
+	public static void testJoinUserCompany()throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		JoinDAOImpl impl=new JoinDAOImpl();
@@ -40,7 +40,7 @@ public class TestJoin {
         }
         sc.close();
 	}
-	public static void testJoinCompanySchedule()throws Exception
+	public static void testJoinCompanySchedule()throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		JoinDAOImpl impl=new JoinDAOImpl();

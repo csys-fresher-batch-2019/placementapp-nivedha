@@ -13,7 +13,7 @@ import com.trainingproject.model.Registration;
 public class TestInterviewPerformance {
 
 	private static final Logger log=Logger.getInstance();
-	public static void testInsert() throws Exception
+	public static void testInsert() throws DbException
 	{
 		 InterviewPerformanceDAOImpl impl=new InterviewPerformanceDAOImpl();
 	        
@@ -56,7 +56,7 @@ public class TestInterviewPerformance {
 	       
 	        sc.close();
 	}
-	public static void testPerform() throws Exception
+	public static void testPerform() throws DbException
 	{
 	        
 	        InterviewPerformanceDAOImpl impl=new InterviewPerformanceDAOImpl();

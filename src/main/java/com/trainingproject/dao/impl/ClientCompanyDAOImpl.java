@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.trainingproject.DbConnection;
+import com.trainingproject.DbException;
 import com.trainingproject.dao.ClientCompanyDAO;
 import com.trainingproject.logger.Logger;
 import com.trainingproject.model.ClientCompany;
@@ -17,7 +17,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 {
 	private static final Logger log=Logger.getInstance();
 
-	public void addCompanyDetails(ClientCompany client) throws Exception {
+	public void addCompanyDetails(ClientCompany client) throws DbException {
 		
 		
 		String sql = "insert into clientcmpy(client_id,company_name,company_type,company_address,ph_no,contact_person,email_id)values"
@@ -43,7 +43,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 	   
 	}
 
-	public List<ClientCompany> listCompanyDetails() throws Exception {
+	public List<ClientCompany> listCompanyDetails() throws DbException {
 		
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
 		
@@ -77,7 +77,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		return list1;
 	}
 
-	public List<ClientCompany> searchByCompany(String companyName) throws Exception {
+	public List<ClientCompany> searchByCompany(String companyName) throws DbException {
 		
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
 		
@@ -112,7 +112,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		return list1;
 	}
 
-	public void deleteCompanyDetails(int clientId) throws Exception {
+	public void deleteCompanyDetails(int clientId) throws DbException {
 		
 		String sql="delete from clientcmpy where client_id=?";
 		log.getInput("");
@@ -131,7 +131,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		
 	}
 
-	public List<ClientCompany> getCompanyNames() throws Exception {
+	public List<ClientCompany> getCompanyNames() throws DbException {
 		
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
 		String sql="select company_name from clientcmpy";
@@ -158,7 +158,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		return list1;
 	}
 
-	public int getNoOfCompanies() throws Exception {
+	public int getNoOfCompanies() throws DbException {
 		
 		String sql="select count(company_name) from clientcmpy";
 		log.getInput("");
@@ -182,7 +182,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO
 		return a;
 	}
 
-	public void updateCompanyDetails(String companyName, String contactPerson) throws Exception {
+	public void updateCompanyDetails(String companyName, String contactPerson) throws DbException {
 		
 		 String sql="update clientcmpy set contact_person=? where company_name=?";
 		 log.getInput(""); 

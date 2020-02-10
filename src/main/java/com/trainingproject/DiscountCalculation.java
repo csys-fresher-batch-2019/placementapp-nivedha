@@ -12,7 +12,7 @@ public class DiscountCalculation {
 	
 private static final Logger log=Logger.getInstance();
 
-public int getNoOfUser(int userId) throws Exception {
+public int getNoOfUser(int userId) throws DbException {
 		
 		String sql="select count(user_id) from usercourse where user_id=?";
 		log.getInput("");
@@ -33,7 +33,7 @@ public int getNoOfUser(int userId) throws Exception {
 		}
 		return a;
 	}
-public int getCourseFees(int courseId) throws Exception {
+public int getCourseFees(int courseId) throws DbException {
 	
 	
 	String sql="select course_fees from course where course_id=?";

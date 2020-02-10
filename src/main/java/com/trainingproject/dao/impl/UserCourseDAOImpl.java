@@ -21,7 +21,7 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 	private static final Logger log=Logger.getInstance();
 
 
-	public void addCourseDurationDate(UserCourse uc) throws Exception {
+	public void addCourseDurationDate(UserCourse uc) throws DbException {
 		
 		
 		String sql = "insert into usercourse" + 
@@ -47,7 +47,7 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 		
 	}
 	
-	public int getDuration(int courseId)throws Exception
+	public int getDuration(int courseId)throws DbException
 	{
 		String sql ="select course_duration from course where course_id =?";
 		log.getInput("");
@@ -74,7 +74,7 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 		
 	}
 
-	public List<UserCourse> getUserCourseDetails(int userId) throws Exception {
+	public List<UserCourse> getUserCourseDetails(int userId) throws DbException {
 		
 		List<UserCourse> list1=new ArrayList<UserCourse>();
 		

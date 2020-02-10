@@ -4,7 +4,7 @@ import com.trainingproject.dao.impl.LoginDAOImpl;
 
 public class TestLogin {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws DbException {
 		
 		LoginDAOImpl impl=new LoginDAOImpl();
 		impl.login("nived", "nivi@12");

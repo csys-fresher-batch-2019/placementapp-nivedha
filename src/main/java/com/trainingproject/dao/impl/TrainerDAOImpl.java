@@ -11,7 +11,7 @@ import com.trainingproject.model.Trainer;
 
 public class TrainerDAOImpl implements TrainerDAO {
 	private static final Logger log=Logger.getInstance();
-	public void addTrainerDetails(Trainer t) throws Exception {
+	public void addTrainerDetails(Trainer t) throws DbException {
 		
 		
 		String sql = "insert into trainer(trainer_id,trainer_name,trainer_qualfication,trainer_specialist,trainer_experience,email_id,contact_number)values(trainer_id_sqn.nextval,?,?,?,?,?,?)";

@@ -13,7 +13,7 @@ import com.trainingproject.model.Registration;
 public class TestClientCompany {
 	
 	private static final Logger log=Logger.getInstance();
-	public static void testCompanyDetails() throws Exception
+	public static void testCompanyDetails() throws DbException
 	{
 		ClientCompanyDAOImpl impl=new ClientCompanyDAOImpl();
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
@@ -25,7 +25,7 @@ public class TestClientCompany {
 			log.getInput(client);
 		}
 	}
-	public static void testSearchByCompany() throws Exception
+	public static void testSearchByCompany() throws DbException
 	{
 		ClientCompanyDAOImpl impl=new ClientCompanyDAOImpl();
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
@@ -43,7 +43,7 @@ public class TestClientCompany {
 		}
 	}
 	
-	public static void testCompanyNames() throws Exception
+	public static void testCompanyNames() throws DbException
 	{
 		ClientCompanyDAOImpl impl=new ClientCompanyDAOImpl();
 		List<ClientCompany> list1=new ArrayList<ClientCompany>();
@@ -52,10 +52,10 @@ public class TestClientCompany {
 		for(ClientCompany client:list1)
 		{
 
-			log.getInput(client);
+			log.getInput(client.getCompanyName());
 		}
 	}
-	public static void testCompanyCount() throws Exception
+	public static void testCompanyCount() throws DbException
 	{
 		ClientCompanyDAOImpl impl=new ClientCompanyDAOImpl();
 		log.getInput("");
@@ -63,7 +63,7 @@ public class TestClientCompany {
 		int count=impl.getNoOfCompanies();
 		log.getInput(count);
 	}
-	public static void testInsert() throws Exception
+	public static void testInsert() throws DbException
 	{
 		
 		Scanner sc=new Scanner(System.in);
@@ -103,7 +103,7 @@ public class TestClientCompany {
 		sc.close();
 	}
 	
-	public static void testDelete() throws Exception
+	public static void testDelete() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		ClientCompany cc=new ClientCompany();
@@ -117,7 +117,7 @@ public class TestClientCompany {
 		sc.close();
 	}
 	
-	public static void testUpdate() throws Exception
+	public static void testUpdate() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		ClientCompany cc=new ClientCompany();
@@ -127,10 +127,10 @@ public class TestClientCompany {
 		log.getInput("***Update Company Details***");
 		log.getInput("Enter Company Name:");
 		cc.setCompanyName(sc.nextLine());
-		cc.setCompanyName(cc.getCompanyName() + sc.nextLine());
+		//cc.setCompanyName(cc.getCompanyName() + sc.nextLine());
 		log.getInput("Enter Contact Person:");
 		cc.setContactPerson(sc.nextLine());
-		cc.setContactPerson(cc.getContactPerson() + sc.nextLine());
+		//cc.setContactPerson(cc.getContactPerson() + sc.nextLine());
 		impl.updateCompanyDetails(cc.getContactPerson(),cc.getCompanyName());
 	}
 

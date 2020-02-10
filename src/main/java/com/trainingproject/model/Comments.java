@@ -77,7 +77,7 @@ public class Comments {
 	}
 	@Override
 	public String toString() {
-		return "Comments [commentsId=" + commentsId + ", userId=" + userCourseId + ", userCourseName=" + userName + ", courseName="
+		return "Comments [commentsId=" + commentsId + ", userId=" + userCourseId + ", userName=" + userName + ", courseName="
 				+ courseName + ", trainerId=" + trainerId + ", trainerName=" + trainerName + ", courseComments="
 				+ courseComments + ", institutionRating=" + institutionRating + ", trainerRating=" + trainerRating
 				+ ", currentDate=" + currentDate + "]";

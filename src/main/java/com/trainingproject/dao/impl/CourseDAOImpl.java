@@ -1,11 +1,9 @@
 package com.trainingproject.dao.impl;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,17 +11,16 @@ import com.trainingproject.DbConnection;
 import com.trainingproject.dao.CourseDAO;
 import com.trainingproject.logger.Logger;
 import com.trainingproject.model.Course;
-import com.trainingproject.model.UserCourse;
 
 public class CourseDAOImpl implements CourseDAO{
 	private static final Logger log=Logger.getInstance();
 	
-	public List<Course> allCourseDetails(String courseName)throws Exception {
+	public List<Course> allCourseDetails(String courseName)throws DbException {
 		
 		List<Course> list=new ArrayList<Course>();
 		String sql ="select course_id,course_name,course_duration,course_fees from course where course_name=?";
 		log.getInput("");
-		log.getInput("***Display All Course Details***");
+		log.getInput("***Display Course Details By Name***");
 		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
 		{
 		stmt.setString(1, courseName);
@@ -49,7 +46,7 @@ public class CourseDAOImpl implements CourseDAO{
 	}
 	
 	
-	public void updateCourse(String courseName, int courseFees) throws Exception {
+	public void updateCourse(String courseName, int courseFees) throws DbException {
 		 
 		
 		 String sql="update course set course_fees=? where course_name=?";
@@ -68,7 +65,7 @@ public class CourseDAOImpl implements CourseDAO{
 	    
 	}
 
-	public int getFees(String courseName) throws Exception {
+	public int getFees(String courseName) throws DbException {
 		
 		String sql="select course_fees from course where course_name=?";
 		log.getInput("***Display "+courseName+" Fees Details***");
@@ -93,7 +90,7 @@ public class CourseDAOImpl implements CourseDAO{
 		return a;
 	}
 
-	public List<Course> getCourseNames() throws Exception {
+	public List<Course> getCourseNames() throws DbException {
 		
 		List<Course> list=new ArrayList<Course>();
 		//Connection con=DbConnection.getConnection();
@@ -120,7 +117,7 @@ public class CourseDAOImpl implements CourseDAO{
 		return list;
 	}
 
-	public void deleteCourse(int courseId) throws Exception {
+	public void deleteCourse(int courseId) throws DbException {
 		
 		String sql="delete from course where course_id=?";
 		log.getInput("");
@@ -138,7 +135,7 @@ catch(SQLException e) {
 	}
 	
 	
-	public void addCourses(Course cl) throws Exception {
+	public void addCourses(Course cl) throws DbException {
 	
 	String sql = "insert into course(course_id,course_name,course_duration,course_fees)values(course_id_seq.nextval,?,?,?)";
 	log.getInput("");
@@ -158,7 +155,7 @@ catch(SQLException e) {
 }
 
 
-	public  List<Course> getNamesByfeesRange(int fees1,int fees2) throws Exception {
+	public  List<Course> getNamesByfeesRange(int fees1,int fees2) throws DbException {
 		List<Course> list=new ArrayList<Course>();
 		
 		String sql="select course_name,course_fees from course where course_fees between ? and ?";
@@ -189,7 +186,7 @@ catch(SQLException e) {
 	}
 
 
-	public List<Course> getMinFeesCourses() throws Exception {
+	public List<Course> getMinFeesCourses() throws DbException {
 		
 		List<Course> list=new ArrayList<Course>();
 		String sql = "select course_name,course_fees from course where course_fees=(select min(course_fees) from course)";

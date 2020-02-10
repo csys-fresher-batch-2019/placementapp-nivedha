@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -20,10 +19,10 @@ import com.trainingproject.model.JoinUserCourse;
 public class JoinDAOImpl {
 	private static final Logger log=Logger.getInstance();
 
-	public List <JoinUserCourse> getUserCourseDetails()throws Exception
+	public List <JoinUserCourse> getUserCourseDetails()throws DbException
 	{
 		List<JoinUserCourse> list=new ArrayList<JoinUserCourse>();
-		String sql ="select uc.user_id,c.course_name,c.course_fees,c.course_duration,uc.start_date,uc.completion_date,uc.total_amount from course c,usercourse uc where c.course_id=uc.course_id";
+		String sql ="select uc.user_id,c.course_id,c.course_name,c.course_fees,c.course_duration,uc.start_date,uc.completion_date,uc.total_amount from course c,usercourse uc where c.course_id=uc.course_id";
 		log.getInput("");
 		log.getInput("***Display All UserCourse Details***");
 		log.getInput("");
@@ -36,6 +35,7 @@ public class JoinDAOImpl {
 		{
 			JoinUserCourse c=new JoinUserCourse();
 			c.setUserId(rs.getInt("user_id"));
+			c.setCourseId(rs.getInt("course_id"));
 			c.setCourseName(rs.getString("course_name"));
 			c.setCourseFees(rs.getInt("course_fees"));
 			c.setCourseDuration(rs.getInt("course_duration"));
@@ -63,7 +63,7 @@ public class JoinDAOImpl {
 		return list;
 		
 	}
-	public List <JoinUserCompany> getUserCompanyDetails(String interStatus)throws Exception
+	public List <JoinUserCompany> getUserCompanyDetails(String interStatus)throws DbException
 	{
 		List<JoinUserCompany> list=new ArrayList<JoinUserCompany>();
 		
@@ -105,7 +105,7 @@ public class JoinDAOImpl {
 		return list;
 		
 	}
-	public List <JoinCompanySchedule> getCompanySchedule(String interviewDate)throws Exception
+	public List <JoinCompanySchedule> getCompanySchedule(String interviewDate)throws DbException
 	{
 		List<JoinCompanySchedule> list=new ArrayList<JoinCompanySchedule>();
 		

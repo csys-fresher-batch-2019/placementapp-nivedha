@@ -14,7 +14,7 @@ import com.trainingproject.model.InterviewSchedule;
 public class TestInterviewSchedule {
 
 	private static final Logger log=Logger.getInstance();
-	public static void testAllSchedule() throws Exception
+	public static void testAllSchedule() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		InterviewScheduleDAOImpl impl=new InterviewScheduleDAOImpl();
@@ -26,7 +26,7 @@ public class TestInterviewSchedule {
 			log.getInput(interview);
 		}
 	}
-	public static void testGetJobReq() throws Exception
+	public static void testGetJobReq() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		InterviewScheduleDAOImpl impl=new InterviewScheduleDAOImpl();
@@ -45,7 +45,7 @@ public class TestInterviewSchedule {
 		}
 	}
 	
-	public static void testNoOfCompanies() throws Exception
+	public static void testNoOfCompanies() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		InterviewScheduleDAOImpl impl=new InterviewScheduleDAOImpl();
@@ -59,7 +59,7 @@ public class TestInterviewSchedule {
 		log.getInput(jobCount);
 		
 	}
-	public static void testDelete() throws Exception
+	public static void testDelete() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);
 		InterviewScheduleDAOImpl impl=new InterviewScheduleDAOImpl();
@@ -69,7 +69,7 @@ public class TestInterviewSchedule {
 		inter.setInterviewId(sc.nextInt());
 		impl.deleteSchedule(inter.getInterviewId());
 	}
-	public static void testInsert() throws Exception
+	public static void testInsert() throws DbException
 	{
 		LocalDate currentDate = LocalDate.now();
 		Scanner sc=new Scanner(System.in);
