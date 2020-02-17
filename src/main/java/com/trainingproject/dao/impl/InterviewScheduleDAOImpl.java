@@ -107,31 +107,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 		}
 	}
 
-	public int getNoOfCompanies(String jobRequirement) throws DbException {
-		
-		String sql="select count(interview_id) from schedule where job_requirement like ?";
-		log.getInput("");
-		log.getInput("***Display the count based on job Requirement***");
-		log.getInput(sql);
-		int a=0;
-       try(	Connection con=DbConnection.getConnection(); PreparedStatement pst=con.prepareStatement(sql);)
-       {
-        pst.setString(1, "%"+jobRequirement+"%");
-        
-      try(ResultSet rs=pst.executeQuery();)
-      {
-		if(rs.next())
-		{
-			a=rs.getInt("count(interview_id)");
-		}
-       }
-       }
-       catch(SQLException e)
-		{
-	log.error(e);	
-		}
-		return a;
-	}
+	
 
 	public List<ClientCompany> getCompanyDetails(String jobRequirement) throws DbException {
 		
@@ -165,5 +141,8 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 		}
 		return list1;
 	}
+
+
+	
 
 }

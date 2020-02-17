@@ -45,20 +45,7 @@ public class TestInterviewSchedule {
 		}
 	}
 	
-	public static void testNoOfCompanies() throws DbException
-	{
-		Scanner sc=new Scanner(System.in);
-		InterviewScheduleDAOImpl impl=new InterviewScheduleDAOImpl();
-		InterviewSchedule inter=new InterviewSchedule();
-		log.getInput("");
-		log.getInput("***Display Company Count Based on JobRequirement***");
-		log.getInput("Enter Job Requirement:");
-		inter.setJobRequirement(sc.nextLine());
-		inter.setJobRequirement(inter.getJobRequirement() + sc.nextLine());
-		int jobCount=impl.getNoOfCompanies(inter.getJobRequirement());
-		log.getInput(jobCount);
-		
-	}
+	
 	public static void testDelete() throws DbException
 	{
 		Scanner sc=new Scanner(System.in);

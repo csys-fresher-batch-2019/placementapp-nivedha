@@ -19,9 +19,11 @@ import com.trainingproject.model.Registration;
 public class RegistrationDAOImpl implements RegistrationDAO{
 	private static final Logger log=Logger.getInstance();
 
-	public void addUserDetails(Registration reg) throws DbException {
+	public void  addUserDetails(Registration reg) throws DbException {
 		
 		String sql = "insert into registration(user_id,user_name,user_password,user_city,mobile_no,mail_id,qualification,gender) values(user_id_seq.nextval,?,?,?,?,?,?,?)";
+		
+		
 		log.getInput("");
 		log.getInput(sql);
 	   try(Connection con=DbConnection.getConnection();
@@ -34,13 +36,17 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 	    stmt.setString(5, reg.getMailId());
 	    stmt.setString(6, reg.getQualification());
 	    stmt.setString(7, reg.getGender());
+	   
 	    int row=stmt.executeUpdate();
+	   
+	    
 	    log.getInput(row);
 	   }
 	   catch(SQLException e)
 		{
 	    log.error(e);	
 		}
+	  
 		
 	}
 	

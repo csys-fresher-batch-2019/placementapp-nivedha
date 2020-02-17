@@ -119,7 +119,11 @@ public class TestCourse {
 				c1.setCourseDuration(sc.nextInt());
 				log.getInput("Enter Course Fees:");
 				c1.setCourseFees(sc.nextInt());
-						
+				log.getInput("Enter Course PDF:");
+				c1.setCoursePdf(sc.next());
+				log.getInput("Enter Course Image:");
+				c1.setCourseImage(sc.next());
+				
 				list.add(c1);
 				log.getInput("Course is added successfully");
 				

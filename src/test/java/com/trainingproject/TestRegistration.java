@@ -73,6 +73,7 @@ public class TestRegistration {
 		{
 		impl.addUserDetails(register);
 		log.getInput(register);
+		
 		}
 		sc.close();
 }

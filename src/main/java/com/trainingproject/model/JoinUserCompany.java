@@ -16,7 +16,7 @@ public class JoinUserCompany {
 	private  long phoneNo;
 	private  String contactPerson;
 	private  String emailId;
-	private String interPerform;
+	private int marks;
 	private String interStatus;
 	public int getUserId() {
 		return userId;
@@ -102,11 +102,11 @@ public class JoinUserCompany {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	public String getInterPerform() {
-		return interPerform;
+	public int getMarks() {
+		return marks;
 	}
-	public void setInterPerform(String interPerform) {
-		this.interPerform = interPerform;
+	public void setMarks(int marks) {
+		this.marks = marks;
 	}
 	public String getInterStatus() {
 		return interStatus;
@@ -121,7 +121,7 @@ public class JoinUserCompany {
 				+ "\n mailId: " + mailId + "\n mobileNo: " + mobileNo + "\n userCity: " + userCity + "\n gender: " + gender
 				+ "\n\n CLIENT DETAILS:\n clientId: " + clientId + "\n companyName: " + companyName + "\n companyType: " + companyType
 				+ "\n companyAddress: " + companyAddress + "\n phoneNo: " + phoneNo + "\n contactPerson: " + contactPerson
-				+ "\n emailId: " + emailId + "\n interPerform: " + interPerform + "\n interStatus: " + interStatus + "\n *************************************\n";
+				+ "\n emailId: " + emailId + "\n marks: " + marks + "\n interStatus: " + interStatus + "\n *************************************\n";
 	}
 	
 	

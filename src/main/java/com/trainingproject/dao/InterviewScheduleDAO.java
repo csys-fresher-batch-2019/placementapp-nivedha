@@ -15,7 +15,6 @@ public interface InterviewScheduleDAO {
 	void deleteSchedule(int interviewId) throws DbException;
 	
 	
-	int getNoOfCompanies(String jobRequirement) throws DbException;
 	
 	//select * from clientcmpy where client_id=(select client_id from schedule where job_title='software developer');
 	List<ClientCompany> getCompanyDetails(String jobTitle) throws DbException;

@@ -8,8 +8,9 @@ public class TestLogin {
 	public static void main(String[] args) throws DbException {
 		
 		LoginDAOImpl impl=new LoginDAOImpl();
-		impl.login("nived", "nivi@12");
-		
+		String[] msg=impl.login("nivij@gmail.com", "nivi@12");
+		System.out.print(msg[0]);
+		System.out.println(msg[1]);
 		
 	}
 

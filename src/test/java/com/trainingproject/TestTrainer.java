@@ -1,9 +1,13 @@
 package com.trainingproject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import com.trainingproject.dao.impl.RegistrationDAOImpl;
 import com.trainingproject.dao.impl.TrainerDAOImpl;
 import com.trainingproject.logger.Logger;
+import com.trainingproject.model.Registration;
 import com.trainingproject.model.Trainer;
 
 public class TestTrainer {
@@ -32,6 +36,21 @@ public class TestTrainer {
 		TrainerDAOImpl impl=new TrainerDAOImpl();
 		impl.addTrainerDetails(t);
         log.getInput(t);
+		
+		
+		
+	}
+	public static void testListTrainerDetails() throws DbException
+	{
+		Trainer t=new Trainer();
+        List<Trainer> list=new ArrayList<Trainer>();
+        TrainerDAOImpl impl1=new TrainerDAOImpl();
+        list=impl1.listTrainerDetails();
+		
+		for(Trainer trainer:list)
+		{
+			log.getInput(trainer);
+		}
 	}
 
 }

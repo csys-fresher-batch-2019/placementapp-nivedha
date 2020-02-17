@@ -5,7 +5,6 @@ public class InterviewPerformance {
 	private int performId;
 	private int clientId;
 	private int userId;
-	private String interPerform;
 	private String interStatus;
 	private int marks;
 	public int getPerformId() {
@@ -26,12 +25,7 @@ public class InterviewPerformance {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public String getInterPerform() {
-		return interPerform;
-	}
-	public void setInterPerform(String interPerform) {
-		this.interPerform = interPerform;
-	}
+	
 	public String getInterStatus() {
 		return interStatus;
 	}
@@ -47,7 +41,7 @@ public class InterviewPerformance {
 	@Override
 	public String toString() {
 		return "InterviewPerformance [performId=" + performId + ", clientId=" + clientId + ", userId=" + userId
-				+ ", interPerform=" + interPerform + ", interStatus=" + interStatus + ", marks=" + marks + "]";
+				+ ", interStatus=" + interStatus + ", marks=" + marks + "]";
 	}
 	
 	}

@@ -19,13 +19,16 @@ public int getNoOfUser(int userId) throws DbException {
 		log.getInput("***Display "+userId+" count***");
 		log.getInput(sql);
 		int a=0;
-        try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);ResultSet rs=pst.executeQuery();)
+        try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
         {
         pst.setInt(1, userId);
+        try(ResultSet rs=pst.executeQuery();)
+        {
 		if(rs.next())
 		{
 			a=rs.getInt("count(user_id)");
 		}
+        }
         }
         catch(SQLException e)
 		{
@@ -41,14 +44,16 @@ public int getCourseFees(int courseId) throws DbException {
 	log.getInput("***Display "+courseId+" Fees Details***");
 	log.getInput(sql);
 	int a=0;
-	try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);ResultSet rs=pst.executeQuery();)
+	try(Connection con=DbConnection.getConnection();PreparedStatement pst=con.prepareStatement(sql);)
 	{
 	pst.setInt(1,courseId);
 	
-	
+	try(ResultSet rs=pst.executeQuery();)
+	{
 	if(rs.next())
 	{
 		a=rs.getInt("course_fees");
+	}
 	}
 	}
 	catch(SQLException e)

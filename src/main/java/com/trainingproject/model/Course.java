@@ -9,6 +9,7 @@ public class Course {
 	private  int courseFees;
 	private int courseCount;
 	private String courseImage;
+	private String coursePdf;
 	
 	public int getCourseId() {
 		return courseId;
@@ -50,6 +51,12 @@ public class Course {
 	public String toString() {
 		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", courseDuration=" + courseDuration
 				+ ", courseFees=" + courseFees + "]";
+	}
+	public String getCoursePdf() {
+		return coursePdf;
+	}
+	public void setCoursePdf(String coursePdf) {
+		this.coursePdf = coursePdf;
 	}
 	
 	

@@ -19,7 +19,7 @@ public class CourseDAOImpl implements CourseDAO{
 	public List<Course> allCourseDetails(String courseName)throws DbException {
 		
 		List<Course> list=new ArrayList<Course>();
-		String sql ="select course_id,course_name,course_duration,course_fees from course where course_name=?";
+		String sql ="select course_id,course_name,course_duration,course_fees,course_image,course_pdf from course where course_name=?";
 		log.getInput("");
 		log.getInput("***Display Course Details By Name***");
 		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
@@ -34,6 +34,9 @@ public class CourseDAOImpl implements CourseDAO{
 			c.setCourseName(rs.getString("course_name"));
 			c.setCourseDuration(rs.getInt("course_duration"));
 			c.setCourseFees(rs.getInt("course_fees"));
+			c.setCoursePdf(rs.getString("course_pdf"));
+			c.setCourseImage(rs.getString("course_image"));
+			
 			list.add(c);
 		}
 		}
@@ -138,7 +141,7 @@ catch(SQLException e) {
 	
 	public void addCourses(Course cl) throws DbException {
 	
-	String sql = "insert into course(course_id,course_name,course_duration,course_fees)values(course_id_seq.nextval,?,?,?)";
+	String sql = "insert into course(course_id,course_name,course_duration,course_fees,course_pdf,course_image)values(course_id_seq.nextval,?,?,?,?,?)";
 	log.getInput("");
 	log.getInput("***Add Course Details***");
 	//log.getInput(sql);
@@ -147,6 +150,9 @@ catch(SQLException e) {
     pst.setString(1, cl.getCourseName());
 	pst.setInt(2,cl.getCourseDuration());
 	pst.setInt(3,cl.getCourseFees());
+    pst.setString(4, cl.getCoursePdf());
+    pst.setString(5, cl.getCourseImage());
+
     int row=pst.executeUpdate();
 	}
    catch(SQLException e) {
