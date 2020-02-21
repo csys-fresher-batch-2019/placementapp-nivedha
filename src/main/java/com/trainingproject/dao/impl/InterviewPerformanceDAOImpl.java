@@ -17,9 +17,9 @@ import com.trainingproject.model.InterviewPerformance;
 public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 
 	private static final Logger log=Logger.getInstance();
-	public void addPerformanceDetails(int clientId,int userId,int marks) throws DbException {
+	public void addPerformanceDetails(int clientId,int userId) throws DbException {
 		
-		String sql = "insert into intervieww(sl_no,client_id,user_id,marks)values(sl_no_sqn.nextval,?,?,?)";	
+		String sql = "insert into intervieww(sl_no,client_id,user_id)values(sl_no_sqn.nextval,?,?)";	
 		log.getInput("");
 		log.getInput("***Add Interview Performance Details***");
 		log.getInput(sql);
@@ -28,7 +28,7 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 		pst.setInt(1, clientId);
 		pst.setInt(2, userId);
 		//pst.setString(3,interStatus);
-		pst.setInt(3,marks);
+		//pst.setInt(3,marks);
 	    int row=pst.executeUpdate();
 	    log.getInput(row);
 		}
@@ -43,7 +43,7 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 		
         List<InterviewPerformance> list=new ArrayList<InterviewPerformance>();
 		
-		String sql ="select client_id,user_id,marks,inter_status from intervieww";
+		String sql ="select sl_no,client_id,user_id,marks,inter_status from intervieww";
 		log.getInput("***Display Interview Performance Details***");
 		log.getInput("");
 		log.getInput(sql);
@@ -54,6 +54,7 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 		while(rs.next())
 		{
 			InterviewPerformance ip=new InterviewPerformance();
+			ip.setPerformId(rs.getInt("sl_no"));
 			ip.setClientId(rs.getInt("client_id"));
 			ip.setUserId(rs.getInt("user_id"));
 			ip.setMarks(rs.getInt("marks"));
@@ -67,6 +68,23 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO{
 	log.error(e);	
 		}
 		return list;
+	}
+
+	@Override
+	public void updateInterviewMarks(int marks, int performId) throws DbException {
+		 String sql="update intervieww set marks=? where sl_no=?";
+		 log.getInput("");
+		
+	   try( Connection con=DbConnection.getConnection(); PreparedStatement pst=con.prepareStatement(sql);)
+	   {	     
+		 pst.setInt(1,marks);
+	     pst.setInt(2,performId);
+	     int row=pst.executeUpdate();
+	   }
+	     catch(SQLException e)
+		   {
+	    	 log.error(e);	
+		   }		
 	}
 
 	}

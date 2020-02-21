@@ -63,11 +63,11 @@ public class TestInterviewSchedule {
 		List<InterviewSchedule> list=new ArrayList<InterviewSchedule>();
 
 		InterviewSchedule is1=new InterviewSchedule();
-		is1.setClientId(1111);
-		is1.setJobTitle("python developer");
-		is1.setJobRequirement("python");
+		is1.setClientId(1151);
+		is1.setJobTitle("selenium developer");
+		is1.setJobRequirement("selenium");
 		is1.setCreatedDate(currentDate);
-		is1.setInterviewDate(LocalDate.parse("2020-02-02"));
+		is1.setInterviewDate(LocalDate.parse("2020-02-25"));
 		is1.setInterviewTime(LocalTime.parse("10:00"));
 		
 		list.add(is1);

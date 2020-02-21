@@ -49,7 +49,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 		
 		List<InterviewSchedule> list=new ArrayList<InterviewSchedule>();
 		
-		String sql ="select * from schedule";
+		String sql ="select * from schedule where interview_date>=sysdate";
 		log.getInput("");
 		log.getInput("***Display Interview Schedule Details***");
 		log.getInput(sql);

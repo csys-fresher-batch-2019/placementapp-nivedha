@@ -2,11 +2,16 @@ package com.trainingproject.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.trainingproject.DbConnection;
 import com.trainingproject.dao.GradeDAO;
 import com.trainingproject.logger.Logger;
+import com.trainingproject.model.Course;
+import com.trainingproject.model.Grade;
 
 public class GradeDAOImpl implements GradeDAO
 {
@@ -20,6 +25,53 @@ public class GradeDAOImpl implements GradeDAO
 		
 	   try( Connection con=DbConnection.getConnection(); PreparedStatement pst=con.prepareStatement(sql);)
 	   {	     
+	     int row=pst.executeUpdate();
+	   }
+	     catch(SQLException e)
+		   {
+	    	 log.error(e);	
+		   }
+	}
+
+
+	@Override
+	public List<Grade> viewGrade() {
+		List<Grade> list=new ArrayList<Grade>();
+		String sql ="select * from grade";
+		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
+		{
+		try(ResultSet rs=stmt.executeQuery();)
+		{
+		while(rs.next())
+		{
+			Grade g=new Grade();
+			g.setMinMarks(rs.getInt("min_marks"));
+			g.setMaxMarks(rs.getInt("max_marks"));
+            g.setStatus(rs.getString("status"));
+			list.add(g);
+		}
+		}
+		}
+		catch(SQLException e)
+		{
+	log.error(e);	
+		}
+		
+		return list;
+	}
+
+
+	@Override
+	public void updateGrade(int minMarks, int maxMarks, String status) {
+		 String sql="update grade set min_marks=?,max_marks=? where status=?";
+		 log.getInput("");
+		
+	   try( Connection con=DbConnection.getConnection(); PreparedStatement pst=con.prepareStatement(sql);)
+	   {	     
+		 pst.setInt(1,minMarks);
+	     pst.setInt(2,maxMarks);
+	     pst.setString(3,status);
+
 	     int row=pst.executeUpdate();
 	   }
 	     catch(SQLException e)

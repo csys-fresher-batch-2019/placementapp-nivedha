@@ -23,13 +23,12 @@ public class TestInterviewPerformance {
 	        log.getInput("Enter the User Id:");
 	        int userId=sc.nextInt();
 	        
-	        log.getInput("Enter the Interview Marks:");
-	        int marks=sc.nextInt();
+	        //log.getInput("Enter the Interview Marks:");
+	        //int marks=sc.nextInt();
 	        
-	        GradeDAOImpl grade=new GradeDAOImpl();
 	        	        
-            impl.addPerformanceDetails(clientId, userId, marks); 
-            grade.updateStatus();
+            impl.addPerformanceDetails(clientId, userId); 
+            
             		
             sc.close();
 	}
@@ -46,6 +45,15 @@ public class TestInterviewPerformance {
 	        }
            
 	       
+	       
+	}
+	public static void testUpdateMarks() throws DbException
+	{
+	        
+	        InterviewPerformanceDAOImpl impl=new InterviewPerformanceDAOImpl();
+	        impl.updateInterviewMarks(87, 1);
+	        GradeDAOImpl grade=new GradeDAOImpl();
+	        grade.updateStatus();
 	       
 	}
 	
