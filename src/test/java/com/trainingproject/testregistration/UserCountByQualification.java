@@ -9,5 +9,4 @@ public class UserCountByQualification {
 
 		TestRegistration.testUserDegree();
 	}
-
 }

@@ -8,5 +8,4 @@ public class TestUpdateMarks {
 	public static void main(String[] args) throws DbException {
 		TestInterviewPerformance.testUpdateMarks();
 	}
-
 }

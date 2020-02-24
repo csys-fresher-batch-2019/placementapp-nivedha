@@ -6,8 +6,7 @@ import com.trainingproject.TestCourse;
 public class GetCourseNames {
 
 	public static void main(String[] args) throws DbException {
-		
-       TestCourse.testCourseNames();
-	}
 
+		TestCourse.testCourseNames();
+	}
 }

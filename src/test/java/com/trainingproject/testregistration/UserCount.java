@@ -8,7 +8,5 @@ public class UserCount {
 	public static void main(String[] args) throws DbException {
 		
 		TestRegistration.testUserCount();
-
 	}
-
 }

@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +13,6 @@ import com.trainingproject.DbConnection;
 import com.trainingproject.DbException;
 import com.trainingproject.dao.UserCourseDAO;
 import com.trainingproject.logger.Logger;
-import com.trainingproject.model.Course;
-import com.trainingproject.model.Registration;
 import com.trainingproject.model.UserCourse;
 
 public class UserCourseDAOImpl implements UserCourseDAO {
@@ -40,22 +37,18 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 		} catch (SQLException e) {
 			log.error(e);
 		}
-
 	}
 
 	public int getDuration(int courseId) throws DbException {
 		String sql = "select course_duration from course where course_id =?";
 		log.getInput(courseId);
 		log.getInput("***Display Course Duration Details***");
-
 		int a = 0;
 		try (Connection con = DbConnection.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setInt(1, courseId);
-
 			try (ResultSet rs = pst.executeQuery();) {
 				if (rs.next()) {
 					a = rs.getInt("course_duration");
-
 				}
 			}
 		} catch (SQLException e) {
@@ -63,17 +56,13 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 			log.error(e);
 		}
 		return a;
-
 	}
 
 	public List<UserCourse> getUserCourseDetails(int userId) throws DbException {
 
 		List<UserCourse> list1 = new ArrayList<UserCourse>();
-
 		String sql = "select * from usercourse where user_id=?";
-		log.getInput("");
 		log.getInput("***Display UserCourse Details***");
-		// log.getInput(sql);
 		try (Connection con = DbConnection.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setInt(1, userId);
 			try (ResultSet rs = pst.executeQuery();) {
@@ -93,7 +82,6 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 						ucc.setCompletionDate(ld1);
 					}
 					ucc.setTotalAmount(rs.getDouble("total_amount"));
-
 					list1.add(ucc);
 				}
 			}
@@ -103,5 +91,4 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 		}
 		return list1;
 	}
-
 }

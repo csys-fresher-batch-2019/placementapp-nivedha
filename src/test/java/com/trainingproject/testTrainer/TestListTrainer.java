@@ -6,8 +6,6 @@ import com.trainingproject.TestTrainer;
 public class TestListTrainer {
 
 	public static void main(String[] args) throws DbException {
-   TestTrainer.testListTrainerDetails();
-  
+		TestTrainer.testListTrainerDetails();
 	}
-
 }

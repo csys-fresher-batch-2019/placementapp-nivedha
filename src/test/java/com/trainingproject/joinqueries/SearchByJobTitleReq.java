@@ -8,7 +8,7 @@ public class SearchByJobTitleReq {
 	public static void main(String[] args) throws DbException {
 
 		TestJoin.testSearchByJob();
-		
+
 	}
 
 }

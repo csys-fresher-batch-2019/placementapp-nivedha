@@ -11,35 +11,26 @@ import com.trainingproject.logger.Logger;
 
 public class AdminLoginDAOImpl {
 
-	private static final Logger log=Logger.getInstance();
+	private static final Logger log = Logger.getInstance();
 
-	public String adminLogin(String email,String password) throws DbException {
-		String msg="";
+	public String adminLogin(String email, String password) throws DbException {
+		String msg = "";
 		String sql = "select * from admin where admin_email=? and admin_password=?";
-		try(Connection con=DbConnection.getConnection();PreparedStatement stmt=con.prepareStatement(sql);)
-		{
+		try (Connection con = DbConnection.getConnection(); PreparedStatement stmt = con.prepareStatement(sql);) {
 			stmt.setString(1, email);
-			stmt.setString(2,password);
-			try(ResultSet rs=stmt.executeQuery())
-			{
-		if (rs.next()) 
-		{
-		msg="success";
-	    log.getInput("LOGGED IN");
-		}
-		else 
-		{
-	     msg="failure";
-		log.getInput("INVALID USERNAME OR PASSWORD");
-}
+			stmt.setString(2, password);
+			try (ResultSet rs = stmt.executeQuery()) {
+				if (rs.next()) {
+					msg = "success";
+					log.getInput("LOGGED IN");
+				} else {
+					msg = "failure";
+					log.getInput("INVALID USERNAME OR PASSWORD");
+				}
 			}
+		} catch (SQLException e) {
+			log.error(e);
 		}
-		catch(SQLException e)
-		{
-	    log.error(e);	
-		}
-			
-	return msg;
+		return msg;
+	}
 }
-}
-
