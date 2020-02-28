@@ -3,8 +3,6 @@ package com.trainingproject.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import com.trainingproject.DbConnection;
 import com.trainingproject.DbException;
 import com.trainingproject.dao.CommentsDAO;
@@ -26,7 +24,7 @@ public class CommentsDAOImpl implements CommentsDAO {
 			pst.setInt(5, c.getTrainerRating());
 			int row = pst.executeUpdate();
 			log.getInput("***Comments Added successfully***");
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -41,7 +39,7 @@ public class CommentsDAOImpl implements CommentsDAO {
 					a = rs.getString("user_name");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return a;
@@ -57,7 +55,7 @@ public class CommentsDAOImpl implements CommentsDAO {
 					a = rs.getString("course_name");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return a;
@@ -73,7 +71,7 @@ public class CommentsDAOImpl implements CommentsDAO {
 					b = rs.getString("trainer_name");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return b;

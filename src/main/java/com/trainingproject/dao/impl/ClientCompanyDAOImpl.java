@@ -31,7 +31,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO {
 			pst.setString(6, client.getEmailId());
 			int row = pst.executeUpdate();
 			log.getInput(row);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -56,7 +56,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO {
 					list1.add(cc);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list1;
@@ -83,7 +83,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO {
 					list1.add(cc);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list1;
@@ -98,7 +98,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO {
 			pst.setInt(1, clientId);
 			int row = pst.executeUpdate();
 			log.getInput(row);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -117,7 +117,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO {
 					list1.add(cc);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list1;
@@ -134,7 +134,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO {
 					a = rs.getInt("count(company_name)");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return a;
@@ -148,7 +148,7 @@ public class ClientCompanyDAOImpl implements ClientCompanyDAO {
 			pst.setString(1, contactPerson);
 			pst.setString(2, companyName);
 			int row = pst.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}

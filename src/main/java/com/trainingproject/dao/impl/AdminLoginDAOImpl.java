@@ -3,7 +3,6 @@ package com.trainingproject.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import com.trainingproject.DbConnection;
 import com.trainingproject.DbException;
@@ -28,7 +27,7 @@ public class AdminLoginDAOImpl {
 					log.getInput("INVALID USERNAME OR PASSWORD");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return msg;

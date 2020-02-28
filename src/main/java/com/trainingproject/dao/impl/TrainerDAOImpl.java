@@ -3,7 +3,6 @@ package com.trainingproject.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class TrainerDAOImpl implements TrainerDAO {
 			pst.setLong(6, t.getContactNumber());
 			int row = pst.executeUpdate();
 			log.getInput("***Added Trainer Details successfully***");
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -52,7 +51,7 @@ public class TrainerDAOImpl implements TrainerDAO {
 					list.add(tr);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list;

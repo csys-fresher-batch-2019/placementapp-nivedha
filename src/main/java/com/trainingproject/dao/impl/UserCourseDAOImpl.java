@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +33,7 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 			pst.setDouble(5, uc.getTotalAmount());
 			int row = pst.executeUpdate();
 			log.getInput(row);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -51,7 +50,7 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 					a = rs.getInt("course_duration");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			log.error(e);
 		}
@@ -85,7 +84,7 @@ public class UserCourseDAOImpl implements UserCourseDAO {
 					list1.add(ucc);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			log.error(e);
 		}

@@ -3,7 +3,6 @@ package com.trainingproject.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO {
 			pst.setInt(2, userId);
 			int row = pst.executeUpdate();
 			log.getInput(row);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -51,7 +50,7 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO {
 					list.add(ip);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list;
@@ -65,7 +64,7 @@ public class InterviewPerformanceDAOImpl implements InterviewPerformanceDAO {
 			pst.setInt(1, marks);
 			pst.setInt(2, performId);
 			int row = pst.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}

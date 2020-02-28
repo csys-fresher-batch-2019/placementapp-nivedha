@@ -3,8 +3,6 @@ package com.trainingproject.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import com.trainingproject.DbConnection;
 import com.trainingproject.DbException;
 import com.trainingproject.dao.LoginDAO;
@@ -30,7 +28,7 @@ public class LoginDAOImpl implements LoginDAO {
 				} else
 					msg = "Login Failed";
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		try (Connection con = DbConnection.getConnection(); PreparedStatement stmt1 = con.prepareStatement(sql1);) {
@@ -40,7 +38,7 @@ public class LoginDAOImpl implements LoginDAO {
 					userId = rs1.getInt("user_id");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		s[0] = msg;

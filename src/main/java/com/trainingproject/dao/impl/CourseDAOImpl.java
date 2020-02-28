@@ -3,7 +3,6 @@ package com.trainingproject.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +34,7 @@ public class CourseDAOImpl implements CourseDAO {
 					list.add(c);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list;
@@ -48,7 +47,7 @@ public class CourseDAOImpl implements CourseDAO {
 			pst.setInt(1, courseFees);
 			pst.setString(2, courseName);
 			int row = pst.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -65,7 +64,7 @@ public class CourseDAOImpl implements CourseDAO {
 					a = rs.getInt("course_fees");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return a;
@@ -85,7 +84,7 @@ public class CourseDAOImpl implements CourseDAO {
 					list.add(c);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list;
@@ -98,7 +97,7 @@ public class CourseDAOImpl implements CourseDAO {
 		try (Connection con = DbConnection.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setInt(1, courseId);
 			int row = pst.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -114,7 +113,7 @@ public class CourseDAOImpl implements CourseDAO {
 			pst.setString(4, cl.getCoursePdf());
 			pst.setString(5, cl.getCourseImage());
 			int row = pst.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -134,7 +133,7 @@ public class CourseDAOImpl implements CourseDAO {
 					list.add(c);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list;
@@ -155,7 +154,7 @@ public class CourseDAOImpl implements CourseDAO {
 					list.add(c);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list;

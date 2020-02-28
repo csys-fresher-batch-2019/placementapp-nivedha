@@ -3,7 +3,6 @@ package com.trainingproject.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +29,7 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 			stmt.setString(7, reg.getGender());
 			int row = stmt.executeUpdate();
 			log.getInput(row);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -44,7 +43,7 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 			pst.setInt(2, userId);
 			int row = pst.executeUpdate();
 			log.getInput(row);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -70,7 +69,7 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 					list1.add(reg);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list1;
@@ -84,7 +83,7 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 			pst.setInt(1, userId);
 			int row = pst.executeUpdate();
 			log.getInput(row);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -101,7 +100,7 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 					a = rs.getInt("count(user_id)");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return a;
@@ -122,7 +121,7 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 					list1.add(reg);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list1;

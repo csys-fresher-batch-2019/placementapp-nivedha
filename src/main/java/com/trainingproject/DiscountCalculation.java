@@ -3,7 +3,6 @@ package com.trainingproject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import com.trainingproject.logger.Logger;
 
@@ -25,7 +24,7 @@ public class DiscountCalculation {
 					a = rs.getInt("count(user_id)");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return a;
@@ -45,7 +44,7 @@ public class DiscountCalculation {
 					a = rs.getInt("course_fees");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return a;

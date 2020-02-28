@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 			pst.setDate(5, Date.valueOf(schedule.getInterviewDate()));
 			pst.setString(6, schedule.getInterviewTime().toString());
 			int row = pst.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -67,7 +66,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 					list.add(in);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list;
@@ -83,7 +82,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 			pst.setInt(1, interviewId);
 			int row = pst.executeUpdate();
 			log.getInput(row);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 	}
@@ -110,7 +109,7 @@ public class InterviewScheduleDAOImpl implements InterviewScheduleDAO {
 					list1.add(cc);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list1;

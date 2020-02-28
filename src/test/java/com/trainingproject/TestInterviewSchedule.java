@@ -55,11 +55,12 @@ public class TestInterviewSchedule {
 		Scanner sc = new Scanner(System.in);
 		List<InterviewSchedule> list = new ArrayList<InterviewSchedule>();
 		InterviewSchedule is1 = new InterviewSchedule();
-		is1.setJobTitle("selenium developer");
-		is1.setJobRequirement("selenium");
+		is1.setClientId(1133);
+		is1.setJobTitle("php developer");
+		is1.setJobRequirement("php");
 		is1.setCreatedDate(currentDate);
-		is1.setInterviewDate(LocalDate.parse("2020-02-25"));
-		is1.setInterviewTime(LocalTime.parse("10:00"));
+		is1.setInterviewDate(LocalDate.parse("2020-03-10"));
+		is1.setInterviewTime(LocalTime.parse("10:30"));
 		list.add(is1);
 		InterviewScheduleDAOImpl impl = new InterviewScheduleDAOImpl();
 		InterviewSchedule inter = new InterviewSchedule();
